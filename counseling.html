@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>初回カウンセリング | Amrita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+JP:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light only;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{background:#f5f0e8;}
+body{background:#f5f0e8 !important;color:#2a2218 !important;font-family:'Noto Serif JP',serif;font-weight:300;line-height:2.2;overflow-x:hidden;min-height:100vh;}
+header{background:#f5f0e8;padding:2.8rem 1.8rem 1.6rem;text-align:center;}
+.logo{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:400;letter-spacing:0.35em;color:#1e1810 !important;}
+.logo-sub{font-size:0.65rem;letter-spacing:0.4em;color:#8a7860 !important;margin-top:0.5rem;}
+.line-top{width:1px;height:3rem;background:linear-gradient(to bottom,transparent,#b8a48a);margin:0 auto;}
+.hero{padding:2.5rem 2rem 3rem;text-align:center;animation:fadeUp 1.2s ease both;}
+.hero-label{font-family:'Cormorant Garamond',serif;font-size:0.62rem;letter-spacing:0.55em;color:#9a8870 !important;text-transform:uppercase;margin-bottom:1.2rem;}
+.hero-title{font-size:1.5rem;font-weight:200;letter-spacing:0.25em;color:#1e1810 !important;margin-bottom:1.5rem;line-height:1.8;}
+.hero-body{font-size:0.88rem;color:#5a4e3e !important;line-height:2.4;max-width:280px;margin:0 auto;}
+.divider{width:1px;height:2.5rem;background:linear-gradient(to bottom,#b8a48a,transparent);margin:2rem auto;}
+.form-wrap{max-width:480px;margin:0 auto;padding:0 1.8rem 5rem;}
+.step{display:none;animation:fadeUp 0.6s ease both;}
+.step.active{display:block;}
+.step-label{font-family:'Cormorant Garamond',serif;font-size:0.6rem;letter-spacing:0.5em;color:#9a8870 !important;text-transform:uppercase;margin-bottom:0.8rem;display:block;}
+.step-title{font-size:1rem;font-weight:300;color:#1e1810 !important;letter-spacing:0.08em;margin-bottom:0.5rem;line-height:1.9;}
+.step-sub{font-size:0.82rem;color:#5a4e3e !important;line-height:2.2;margin-bottom:1.5rem;}
+.options{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2.5rem;}
+.option{display:flex;align-items:flex-start;gap:0.8rem;padding:1rem 1.2rem;border:1px solid #c8b49a;background:#faf7f2 !important;cursor:pointer;transition:background 0.3s,border-color 0.3s;}
+.option:hover{background:#f0e8d8 !important;}
+.option.selected{background:#e8ddd0 !important;border-color:#a08060;}
+.option input{display:none;}
+.option-dot{width:8px;height:8px;border-radius:50%;border:1px solid #b8a48a;flex-shrink:0;margin-top:0.6rem;transition:background 0.2s;}
+.option.selected .option-dot{background:#8a6840;border-color:#8a6840;}
+.option-text{font-size:0.85rem;color:#2a2218 !important;line-height:1.9;}
+textarea{width:100%;background:#faf7f2 !important;border:1px solid #c8b49a;padding:1rem 1.2rem;font-family:'Noto Serif JP',serif;font-size:0.85rem;color:#2a2218 !important;line-height:2;resize:none;height:130px;outline:none;margin-bottom:0;}
+textarea:focus{border-color:#a08060;}
+textarea::placeholder{color:#b8a48a !important;}
+.input-field{width:100%;background:#faf7f2 !important;border:1px solid #c8b49a;padding:1rem 1.2rem;font-family:'Noto Serif JP',serif;font-size:0.85rem;color:#2a2218 !important;outline:none;display:block;}
+.input-field+.input-field{border-top:none;}
+.input-field:focus{border-color:#a08060;}
+.input-field::placeholder{color:#b8a48a !important;}
+.input-wrap{margin-bottom:2rem;}
+.section-block{margin-top:2rem;}
+.section-title{font-size:0.92rem;font-weight:300;color:#1e1810 !important;letter-spacing:0.08em;margin-bottom:0.8rem;line-height:1.9;}
+.btn-next{display:block;width:100%;padding:1rem;background:#1e1810 !important;color:#f5ede0 !important;font-family:'Noto Serif JP',serif;font-size:0.78rem;letter-spacing:0.3em;border:none;cursor:pointer;transition:background 0.3s;margin-top:2.5rem;}
+.btn-next:hover{background:#3a2e20 !important;}
+.btn-next:disabled{opacity:0.4;cursor:not-allowed;}
+.progress{display:flex;gap:4px;margin-bottom:2.5rem;}
+.progress-dot{flex:1;height:1px;background:#c8b49a;transition:background 0.4s;}
+.progress-dot.done{background:#8a6840;}
+.other-textarea{display:none;margin-top:0.8rem;}
+.other-textarea.show{display:block;}
+.thankyou{display:none;max-width:480px;margin:0 auto;padding:0 1.8rem 5rem;}
+.thankyou.show{display:block;animation:fadeUp 1s ease both;}
+.thankyou-label{font-family:'Cormorant Garamond',serif;font-size:0.6rem;letter-spacing:0.5em;color:#9a8870 !important;text-transform:uppercase;margin-bottom:1.5rem;display:block;}
+.thankyou-title{font-size:1.1rem;font-weight:200;color:#1e1810 !important;letter-spacing:0.15em;margin-bottom:2rem;line-height:1.9;}
+.thankyou-body{font-size:0.88rem;line-height:2.8;color:#2a2218 !important;}
+.thankyou-note{font-size:0.75rem;color:#9a8870 !important;line-height:2.2;margin-top:2rem;padding-top:1.5rem;border-top:1px solid #c8b49a;}
+footer{background:#1e1810 !important;border-top:1px solid #3a2e20;padding:1.8rem;text-align:center;font-size:0.62rem;color:#c8a87a !important;letter-spacing:0.25em;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Amrita</div>
+  <div class="logo-sub">存在から生まれる場所</div>
+</header>
+<div class="line-top"></div>
+
+<div class="hero">
+  <div class="hero-label">First Session</div>
+  <h1 class="hero-title">初回カウンセリング</h1>
+  <p class="hero-body">施術の前に、今のあなたのことを教えてください。<br>ありのままを。</p>
+</div>
+<div class="divider"></div>
+
+<div class="form-wrap">
+  <div class="progress">
+    <div class="progress-dot done" id="p0"></div>
+    <div class="progress-dot" id="p1"></div>
+    <div class="progress-dot" id="p2"></div>
+    <div class="progress-dot" id="p3"></div>
+    <div class="progress-dot" id="p4"></div>
+    <div class="progress-dot" id="p5"></div>
+    <div class="progress-dot" id="p6"></div>
+    <div class="progress-dot" id="p7"></div>
+  </div>
+
+  <div class="step active" id="step0">
+    <span class="step-label">01 · Body · 身体</span>
+    <div class="step-title">今、身体はどんな状態ですか？</div>
+    <div class="options" id="opts0">
+      <label class="option"><input type="radio" name="q0"><span class="option-dot"></span><span class="option-text">重くて疲れている。動きたくない。</span></label>
+      <label class="option"><input type="radio" name="q0"><span class="option-dot"></span><span class="option-text">力みや緊張が抜けない。肩や首が固い。</span></label>
+      <label class="option"><input type="radio" name="q0"><span class="option-dot"></span><span class="option-text">呼吸が浅い。胸や腹が窮屈な感じ。</span></label>
+      <label class="option"><input type="radio" name="q0"><span class="option-dot"></span><span class="option-text">痛みや不快感がある。気になる部分がある。</span></label>
+      <label class="option"><input type="radio" name="q0"><span class="option-dot"></span><span class="option-text">比較的軽い。特に気になる感じはない。</span></label>
+    </div>
+    <button class="btn-next" onclick="nextStep(0)" id="btn0" disabled>次へ</button>
+  </div>
+
+  <div class="step" id="step1">
+    <span class="step-label">02 · Sleep · 睡眠</span>
+    <div class="step-title">最近の睡眠はどうですか？</div>
+    <div class="options" id="opts1">
+      <label class="option"><input type="radio" name="q1"><span class="option-dot"></span><span class="option-text">眠れない夜が続いている。</span></label>
+      <label class="option"><input type="radio" name="q1"><span class="option-dot"></span><span class="option-text">眠れるが、浅い。疲れが取れない。</span></label>
+      <label class="option"><input type="radio" name="q1"><span class="option-dot"></span><span class="option-text">普通。特に気になることはない。</span></label>
+      <label class="option"><input type="radio" name="q1"><span class="option-dot"></span><span class="option-text">よく眠れている。</span></label>
+    </div>
+    <button class="btn-next" onclick="nextStep(1)" id="btn1" disabled>次へ</button>
+  </div>
+
+  <div class="step" id="step2">
+    <span class="step-label">03 · Life · 生活</span>
+    <div class="step-title">食事や日々の生活リズムは<br>どうですか？</div>
+    <p class="step-sub">最近の傾向を選んでください。</p>
+    <div class="options" id="opts2">
+      <label class="option"><input type="radio" name="q2"><span class="option-dot"></span><span class="option-text">不規則。食べていない日もある。</span></label>
+      <label class="option"><input type="radio" name="q2"><span class="option-dot"></span><span class="option-text">食べてはいるが、偏っている。</span></label>
+      <label class="option"><input type="radio" name="q2"><span class="option-dot"></span><span class="option-text">普通。特に気になることはない。</span></label>
+      <label class="option"><input type="radio" name="q2"><span class="option-dot"></span><span class="option-text">整っている。リズムが安定している。</span></label>
+    </div>
+    <button class="btn-next" onclick="nextStep(2)" id="btn2" disabled>次へ</button>
+  </div>
+
+  <div class="step" id="step3">
+    <span class="step-label">04 · Stress · ストレス</span>
+    <div class="step-title">今、心や頭にかかっている<br>負荷はどのくらいですか？</div>
+    <div class="options" id="opts3">
+      <label class="option"><input type="radio" name="q3"><span class="option-dot"></span><span class="option-text">かなり多い。限界に近い感じがある。</span></label>
+      <label class="option"><input type="radio" name="q3"><span class="option-dot"></span><span class="option-text">少し多め。じわじわ積み重なっている。</span></label>
+      <label class="option"><input type="radio" name="q3"><span class="option-dot"></span><span class="option-text">普通。うまく付き合えている。</span></label>
+      <label class="option"><input type="radio" name="q3"><span class="option-dot"></span><span class="option-text">あまり感じていない。落ち着いている。</span></label>
+    </div>
+    <button class="btn-next" onclick="nextStep(3)" id="btn3" disabled>次へ</button>
+  </div>
+
+  <div class="step" id="step4">
+    <span class="step-label">05 · Care · 施術について</span>
+    <div class="step-title">施術前に教えてください。</div>
+    <div class="section-block">
+      <div class="section-title">特に気になるところ</div>
+      <textarea id="concern" placeholder="身体の部位、感覚、状態など。気になることをそのままに。&#10;例：肩がずっと張っている、呼吸が浅い、頭が重い"></textarea>
+    </div>
+    <div class="section-block">
+      <div class="section-title">触れてほしくない場所</div>
+      <textarea id="noTouch" placeholder="傷やケガ、手術跡、気になる部位など。なければ空欄で。&#10;例：右膝の手術跡、腰まわり、お腹" style="height:100px;"></textarea>
+    </div>
+    <div class="section-block">
+      <div class="section-title">してほしくないこと</div>
+      <textarea id="noAction" placeholder="動きや強さ、体勢など。なければ空欄で。&#10;例：肩を上に上げる動き、強い圧、うつ伏せになりたくない、髪が乱れること" style="height:100px;"></textarea>
+    </div>
+    <button class="btn-next" onclick="nextStep(4)">次へ</button>
+  </div>
+
+  <div class="step" id="step5">
+    <span class="step-label">06 · Health · 健康について</span>
+    <div class="step-title">あらかじめ伝えておきたいことが<br>あれば教えてください。</div>
+    <textarea id="health" placeholder="既往症、妊娠中、アレルギーなど。なければ空欄で。&#10;例：腰椎ヘルニア、右肩の可動域が狭い、妊娠中"></textarea>
+    <button class="btn-next" onclick="nextStep(5)" style="margin-top:2rem;">次へ</button>
+  </div>
+
+  <div class="step" id="step6">
+    <span class="step-label">07 · Story · きっかけ</span>
+    <div class="step-title">Amritaを知ったきっかけを<br>教えてください。</div>
+    <div class="options" id="opts6">
+      <label class="option"><input type="radio" name="q6"><span class="option-dot"></span><span class="option-text">Instagram</span></label>
+      <label class="option"><input type="radio" name="q6"><span class="option-dot"></span><span class="option-text">note</span></label>
+      <label class="option"><input type="radio" name="q6"><span class="option-dot"></span><span class="option-text">知人・友人の紹介</span></label>
+      <label class="option"><input type="radio" name="q6"><span class="option-dot"></span><span class="option-text">検索して</span></label>
+      <label class="option"><input type="radio" name="q6"><span class="option-dot"></span><span class="option-text">その他</span></label>
+    </div>
+    <textarea id="otherText" class="other-textarea" placeholder="どこで知りましたか？" style="height:80px;"></textarea>
+    <div class="section-block">
+      <div class="section-title">Amritaを選んでくれた理由</div>
+      <textarea id="reason" placeholder="例：Esalenマッサージに興味があった、自分の身体と向き合いたかった" style="margin-top:0.8rem;"></textarea>
+    </div>
+    <button class="btn-next" onclick="nextStep(6)" id="btn6" disabled>次へ</button>
+  </div>
+
+  <div class="step" id="step7">
+    <span class="step-label">08 · Today · 今日について</span>
+    <div class="step-title">今日のセッションへの期待を<br>教えてください。</div>
+    <textarea id="expectation" placeholder="断片でも、感覚でも。ありのままを。&#10;例：とにかく休みたい、身体の感覚を取り戻したい"></textarea>
+    <div class="section-block">
+      <div class="section-title">お名前・番号</div>
+      <div class="input-wrap" style="margin-top:0.8rem;">
+        <input type="text" class="input-field" id="userName" placeholder="お名前">
+        <input type="text" class="input-field" id="customerNo" placeholder="あらかじめお伝えした番号（初回の方は 000）">
+      </div>
+    </div>
+    <button class="btn-next" onclick="doSubmit()">送信する</button>
+  </div>
+
+</div>
+
+<div class="thankyou" id="thankyou">
+  <span class="thankyou-label">Thank you</span>
+  <div class="thankyou-title">ありがとうございます。</div>
+  <div class="thankyou-body">回答を受け取りました。<br><br>まもなくセッションを始めます。<br>どうぞゆっくりお待ちください。</div>
+  <p class="thankyou-note">ご不明な点は、LINEよりお気軽にどうぞ。</p>
+</div>
+
+<footer>© Amrita — 埼玉県 秩父市</footer>
+
+<script>
+const answers = {};
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzYl_yg604NqXWh28Ie1iQ6PvejsSib-zBT-Djs7qVc4BHHosAAwH4r3B9MXeAROQXq/exec";
+
+document.querySelectorAll('.options').forEach((opts) => {
+  opts.querySelectorAll('.option').forEach(opt => {
+    opt.addEventListener('click', () => {
+      opts.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+      const key = opts.id.replace('opts', 'q');
+      answers[key] = opt.querySelector('.option-text').textContent;
+      const btnId = 'btn' + opts.id.replace('opts', '');
+      const btn = document.getElementById(btnId);
+      if (btn) btn.disabled = false;
+      if (opts.id === 'opts6') {
+        const otherTextarea = document.getElementById('otherText');
+        if (answers['q6'] === 'その他') {
+          otherTextarea.classList.add('show');
+        } else {
+          otherTextarea.classList.remove('show');
+          otherTextarea.value = '';
+        }
+      }
+    });
+  });
+});
+
+function updateProgress(current) {
+  for (let i = 0; i <= 7; i++) {
+    const dot = document.getElementById('p' + i);
+    if (dot) dot.classList.toggle('done', i <= current);
+  }
+}
+
+function nextStep(current) {
+  document.getElementById('step' + current).classList.remove('active');
+  const next = current + 1;
+  document.getElementById('step' + next).classList.add('active');
+  updateProgress(next);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function doSubmit() {
+  const name = document.getElementById('userName').value.trim();
+  const customerNo = document.getElementById('customerNo').value.trim();
+  if (!name || !customerNo) {
+    alert('お名前と番号を入力してください。');
+    return;
+  }
+  const otherText = document.getElementById('otherText').value.trim();
+  const howKnew = answers['q6'] === 'その他' && otherText
+    ? 'その他：' + otherText
+    : (answers['q6'] || '');
+  const params = new URLSearchParams({
+    name: name,
+    customerNo: customerNo,
+    body: answers['q0'] || '',
+    sleep: answers['q1'] || '',
+    life: answers['q2'] || '',
+    stress: answers['q3'] || '',
+    concern: document.getElementById('concern').value.trim(),
+    noTouch: document.getElementById('noTouch').value.trim(),
+    noAction: document.getElementById('noAction').value.trim(),
+    health: document.getElementById('health').value.trim(),
+    howKnew: howKnew,
+    reason: document.getElementById('reason').value.trim(),
+    expectation: document.getElementById('expectation').value.trim(),
+    callback: 'cb'
+  });
+  const script = document.createElement('script');
+  script.src = SCRIPT_URL + '?' + params.toString();
+  window.cb = function () {
+    document.querySelector('.form-wrap').style.display = 'none';
+    document.getElementById('thankyou').classList.add('show');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  document.body.appendChild(script);
+  setTimeout(function () {
+    document.querySelector('.form-wrap').style.display = 'none';
+    document.getElementById('thankyou').classList.add('show');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, 3000);
+}
+</script>
+</body>
+</html>
