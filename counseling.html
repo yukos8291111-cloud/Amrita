@@ -65,20 +65,17 @@ footer{background:#1e1810 !important;border-top:1px solid #3a2e20;padding:1.8rem
 </style>
 </head>
 <body>
-
 <header>
   <div class="logo">Amrita</div>
   <div class="logo-sub">存在から生まれる場所</div>
 </header>
 <div class="line-top"></div>
-
 <div class="hero">
   <div class="hero-label">First Session</div>
   <h1 class="hero-title">初回カウンセリング</h1>
   <p class="hero-body">施術の前に、今のあなたのことを教えてください。<br>ありのままを。</p>
 </div>
 <div class="divider"></div>
-
 <div class="form-wrap">
   <div class="progress">
     <div class="progress-dot done" id="p0"></div>
@@ -90,7 +87,6 @@ footer{background:#1e1810 !important;border-top:1px solid #3a2e20;padding:1.8rem
     <div class="progress-dot" id="p6"></div>
     <div class="progress-dot" id="p7"></div>
   </div>
-
   <div class="step active" id="step0">
     <span class="step-label">01 · Body · 身体</span>
     <div class="step-title">今、身体はどんな状態ですか？</div>
@@ -103,7 +99,6 @@ footer{background:#1e1810 !important;border-top:1px solid #3a2e20;padding:1.8rem
     </div>
     <button class="btn-next" onclick="nextStep(0)" id="btn0" disabled>次へ</button>
   </div>
-
   <div class="step" id="step1">
     <span class="step-label">02 · Sleep · 睡眠</span>
     <div class="step-title">最近の睡眠はどうですか？</div>
@@ -115,7 +110,6 @@ footer{background:#1e1810 !important;border-top:1px solid #3a2e20;padding:1.8rem
     </div>
     <button class="btn-next" onclick="nextStep(1)" id="btn1" disabled>次へ</button>
   </div>
-
   <div class="step" id="step2">
     <span class="step-label">03 · Life · 生活</span>
     <div class="step-title">食事や日々の生活リズムは<br>どうですか？</div>
@@ -128,7 +122,6 @@ footer{background:#1e1810 !important;border-top:1px solid #3a2e20;padding:1.8rem
     </div>
     <button class="btn-next" onclick="nextStep(2)" id="btn2" disabled>次へ</button>
   </div>
-
   <div class="step" id="step3">
     <span class="step-label">04 · Stress · ストレス</span>
     <div class="step-title">今、心や頭にかかっている<br>負荷はどのくらいですか？</div>
@@ -140,7 +133,6 @@ footer{background:#1e1810 !important;border-top:1px solid #3a2e20;padding:1.8rem
     </div>
     <button class="btn-next" onclick="nextStep(3)" id="btn3" disabled>次へ</button>
   </div>
-
   <div class="step" id="step4">
     <span class="step-label">05 · Care · 施術について</span>
     <div class="step-title">施術前に教えてください。</div>
@@ -158,14 +150,12 @@ footer{background:#1e1810 !important;border-top:1px solid #3a2e20;padding:1.8rem
     </div>
     <button class="btn-next" onclick="nextStep(4)">次へ</button>
   </div>
-
   <div class="step" id="step5">
     <span class="step-label">06 · Health · 健康について</span>
     <div class="step-title">あらかじめ伝えておきたいことが<br>あれば教えてください。</div>
     <textarea id="health" placeholder="既往症、妊娠中、アレルギーなど。なければ空欄で。&#10;例：腰椎ヘルニア、右肩の可動域が狭い、妊娠中"></textarea>
     <button class="btn-next" onclick="nextStep(5)" style="margin-top:2rem;">次へ</button>
   </div>
-
   <div class="step" id="step6">
     <span class="step-label">07 · Story · きっかけ</span>
     <div class="step-title">Amritaを知ったきっかけを<br>教えてください。</div>
@@ -183,7 +173,6 @@ footer{background:#1e1810 !important;border-top:1px solid #3a2e20;padding:1.8rem
     </div>
     <button class="btn-next" onclick="nextStep(6)" id="btn6" disabled>次へ</button>
   </div>
-
   <div class="step" id="step7">
     <span class="step-label">08 · Today · 今日について</span>
     <div class="step-title">今日のセッションへの期待を<br>教えてください。</div>
@@ -197,21 +186,17 @@ footer{background:#1e1810 !important;border-top:1px solid #3a2e20;padding:1.8rem
     </div>
     <button class="btn-next" onclick="doSubmit()">送信する</button>
   </div>
-
 </div>
-
 <div class="thankyou" id="thankyou">
   <span class="thankyou-label">Thank you</span>
   <div class="thankyou-title">ありがとうございます。</div>
   <div class="thankyou-body">回答を受け取りました。<br><br>まもなくセッションを始めます。<br>どうぞゆっくりお待ちください。</div>
   <p class="thankyou-note">ご不明な点は、LINEよりお気軽にどうぞ。</p>
 </div>
-
 <footer>© Amrita — 埼玉県 秩父市</footer>
-
 <script>
 const answers = {};
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzYl_yg604NqXWh28Ie1iQ6PvejsSib-zBT-Djs7qVc4BHHosAAwH4r3B9MXeAROQXq/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxYwB1C7buF48ZUBAVCbeR0ohqgE_y3TvJKig-cw7xpzV-EAWoq4i8qssagoo0UVH1H/exec";
 
 document.querySelectorAll('.options').forEach((opts) => {
   opts.querySelectorAll('.option').forEach(opt => {
