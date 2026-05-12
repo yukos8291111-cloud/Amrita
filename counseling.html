@@ -14,53 +14,63 @@
 html{background:#f5f0e8;}
 body{background:#f5f0e8 !important;color:#2a2218 !important;font-family:'Noto Serif JP',serif;font-weight:300;line-height:2.2;overflow-x:hidden;min-height:100vh;}
 header{background:#f5f0e8;padding:2.8rem 1.8rem 1.6rem;text-align:center;}
-.logo{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:400;letter-spacing:0.35em;color:#1e1810 !important;}
-.logo-sub{font-size:0.65rem;letter-spacing:0.4em;color:#8a7860 !important;margin-top:0.5rem;}
+.logo{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:400;letter-spacing:0.35em;color:#1e1810;}
+.logo-sub{font-size:0.65rem;letter-spacing:0.4em;color:#8a7860;margin-top:0.5rem;}
 .line-top{width:1px;height:3rem;background:linear-gradient(to bottom,transparent,#b8a48a);margin:0 auto;}
 .hero{padding:2.5rem 2rem 3rem;text-align:center;animation:fadeUp 1.2s ease both;}
-.hero-label{font-family:'Cormorant Garamond',serif;font-size:0.62rem;letter-spacing:0.55em;color:#9a8870 !important;text-transform:uppercase;margin-bottom:1.2rem;}
-.hero-title{font-size:1.5rem;font-weight:200;letter-spacing:0.25em;color:#1e1810 !important;margin-bottom:1.5rem;line-height:1.8;}
-.hero-body{font-size:0.88rem;color:#5a4e3e !important;line-height:2.4;max-width:280px;margin:0 auto;}
+.hero-label{font-family:'Cormorant Garamond',serif;font-size:0.62rem;letter-spacing:0.55em;color:#9a8870;text-transform:uppercase;margin-bottom:1.2rem;}
+.hero-title{font-size:1.5rem;font-weight:200;letter-spacing:0.25em;color:#1e1810;margin-bottom:1.5rem;line-height:1.8;}
+.hero-body{font-size:0.88rem;color:#5a4e3e;line-height:2.4;max-width:280px;margin:0 auto;}
 .divider{width:1px;height:2.5rem;background:linear-gradient(to bottom,#b8a48a,transparent);margin:2rem auto;}
 .form-wrap{max-width:480px;margin:0 auto;padding:0 1.8rem 5rem;}
 .step{display:none;animation:fadeUp 0.6s ease both;}
 .step.active{display:block;}
-.step-label{font-family:'Cormorant Garamond',serif;font-size:0.6rem;letter-spacing:0.5em;color:#9a8870 !important;text-transform:uppercase;margin-bottom:0.8rem;display:block;}
-.step-title{font-size:1rem;font-weight:300;color:#1e1810 !important;letter-spacing:0.08em;margin-bottom:0.5rem;line-height:1.9;}
-.step-sub{font-size:0.82rem;color:#5a4e3e !important;line-height:2.2;margin-bottom:1.5rem;}
-.options{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2.5rem;}
-.option{display:flex;align-items:flex-start;gap:0.8rem;padding:1rem 1.2rem;border:1px solid #c8b49a;background:#faf7f2 !important;cursor:pointer;transition:background 0.3s,border-color 0.3s;}
-.option:hover{background:#f0e8d8 !important;}
-.option.selected{background:#e8ddd0 !important;border-color:#a08060;}
-.option input{display:none;}
-.option-dot{width:8px;height:8px;border-radius:50%;border:1px solid #b8a48a;flex-shrink:0;margin-top:0.6rem;transition:background 0.2s;}
-.option.selected .option-dot{background:#8a6840;border-color:#8a6840;}
-.option-text{font-size:0.85rem;color:#2a2218 !important;line-height:1.9;}
-textarea{width:100%;background:#faf7f2 !important;border:1px solid #c8b49a;padding:1rem 1.2rem;font-family:'Noto Serif JP',serif;font-size:0.85rem;color:#2a2218 !important;line-height:2;resize:none;height:130px;outline:none;margin-bottom:0;}
-textarea:focus{border-color:#a08060;}
-textarea::placeholder{color:#b8a48a !important;}
-.input-field{width:100%;background:#faf7f2 !important;border:1px solid #c8b49a;padding:1rem 1.2rem;font-family:'Noto Serif JP',serif;font-size:0.85rem;color:#2a2218 !important;outline:none;display:block;}
-.input-field+.input-field{border-top:none;}
+.step-label{font-family:'Cormorant Garamond',serif;font-size:0.6rem;letter-spacing:0.5em;color:#9a8870;text-transform:uppercase;margin-bottom:0.8rem;display:block;}
+.step-title{font-size:1rem;font-weight:300;color:#1e1810;letter-spacing:0.08em;margin-bottom:1.5rem;line-height:1.9;}
+.field-block{margin-bottom:1.5rem;}
+.field-label{font-size:0.8rem;color:#8a7860;letter-spacing:0.05em;margin-bottom:0.4rem;display:block;}
+.req{color:#c04040;margin-left:0.2rem;}
+.input-field{width:100%;background:#faf7f2;border:1px solid #c8b49a;padding:1rem 1.2rem;font-family:'Noto Serif JP',serif;font-size:0.85rem;color:#2a2218;outline:none;display:block;-webkit-appearance:none;border-radius:0;}
 .input-field:focus{border-color:#a08060;}
-.input-field::placeholder{color:#b8a48a !important;}
-.input-wrap{margin-bottom:2rem;}
-.section-block{margin-top:2rem;}
-.section-title{font-size:0.92rem;font-weight:300;color:#1e1810 !important;letter-spacing:0.08em;margin-bottom:0.8rem;line-height:1.9;}
-.btn-next{display:block;width:100%;padding:1rem;background:#1e1810 !important;color:#f5ede0 !important;font-family:'Noto Serif JP',serif;font-size:0.78rem;letter-spacing:0.3em;border:none;cursor:pointer;transition:background 0.3s;margin-top:2.5rem;}
-.btn-next:hover{background:#3a2e20 !important;}
+.input-field::placeholder{color:#b8a48a;}
+.input-field.invalid{border-color:#c04040;background:#fff8f8;}
+.note-small{font-size:0.78rem;color:#8a7860;margin-left:0.4rem;}
+.options{display:flex;flex-direction:column;gap:0.5rem;}
+.option{display:flex;align-items:flex-start;gap:0.8rem;padding:1rem 1.2rem;border:1px solid #c8b49a;background:#faf7f2;cursor:pointer;transition:all 0.2s;user-select:none;-webkit-user-select:none;}
+.option.selected{background:#e8ddd0;border-color:#a08060;}
+.option-dot{width:10px;height:10px;border-radius:50%;border:1.5px solid #b8a48a;flex-shrink:0;margin-top:0.55rem;transition:all 0.2s;}
+.option.selected .option-dot{background:#8a6840;border-color:#8a6840;}
+.option-text{font-size:0.85rem;color:#2a2218;line-height:1.9;}
+.cb-list{display:flex;flex-direction:column;gap:0.5rem;}
+.cb-item{display:flex;align-items:flex-start;gap:0.8rem;padding:1rem 1.2rem;border:1px solid #c8b49a;background:#faf7f2;cursor:pointer;transition:all 0.2s;user-select:none;-webkit-user-select:none;}
+.cb-item.selected{background:#e8ddd0;border-color:#a08060;}
+.cb-box{width:10px;height:10px;border:1.5px solid #b8a48a;flex-shrink:0;margin-top:0.55rem;transition:all 0.2s;}
+.cb-item.selected .cb-box{background:#8a6840;border-color:#8a6840;}
+.cb-text{font-size:0.85rem;color:#2a2218;line-height:1.9;}
+.other-wrap{display:none;margin-top:0.5rem;}
+.other-wrap.show{display:block;}
+textarea{width:100%;background:#faf7f2;border:1px solid #c8b49a;padding:1rem 1.2rem;font-family:'Noto Serif JP',serif;font-size:0.85rem;color:#2a2218;line-height:2;resize:none;outline:none;display:block;border-radius:0;}
+textarea:focus{border-color:#a08060;}
+textarea::placeholder{color:#b8a48a;}
+.btn-next{display:block;width:100%;padding:1.1rem;background:#1e1810;color:#f5ede0;font-family:'Noto Serif JP',serif;font-size:0.78rem;letter-spacing:0.3em;border:none;cursor:pointer;transition:background 0.3s;margin-top:2.5rem;-webkit-appearance:none;appearance:none;border-radius:0;}
+.btn-next:active{background:#3a2e20;}
 .btn-next:disabled{opacity:0.4;cursor:not-allowed;}
 .progress{display:flex;gap:4px;margin-bottom:2.5rem;}
 .progress-dot{flex:1;height:1px;background:#c8b49a;transition:background 0.4s;}
 .progress-dot.done{background:#8a6840;}
-.other-textarea{display:none;margin-top:0.8rem;}
-.other-textarea.show{display:block;}
+.error-msg{font-size:0.75rem;color:#c04040;margin-top:0.8rem;display:none;padding:0.6rem 0.8rem;background:#fff0f0;border:1px solid #f0c0c0;}
+.error-msg.show{display:block;}
+.agree-intro{font-size:0.82rem;color:#5a4e3e;line-height:2;margin-bottom:1rem;padding:1rem 1.2rem;border-left:2px solid #b8a48a;background:#fdf9f4;}
+.agree-row{display:flex;align-items:flex-start;gap:0.8rem;padding:1rem 1.2rem;border:1px solid #c8b49a;background:#faf7f2;margin-bottom:0.5rem;cursor:pointer;user-select:none;}
+.agree-row input[type=checkbox]{width:18px;height:18px;margin-top:0.15rem;flex-shrink:0;cursor:pointer;accent-color:#8a6840;}
+.agree-text{font-size:0.82rem;color:#2a2218;line-height:1.9;}
 .thankyou{display:none;max-width:480px;margin:0 auto;padding:0 1.8rem 5rem;}
 .thankyou.show{display:block;animation:fadeUp 1s ease both;}
-.thankyou-label{font-family:'Cormorant Garamond',serif;font-size:0.6rem;letter-spacing:0.5em;color:#9a8870 !important;text-transform:uppercase;margin-bottom:1.5rem;display:block;}
-.thankyou-title{font-size:1.1rem;font-weight:200;color:#1e1810 !important;letter-spacing:0.15em;margin-bottom:2rem;line-height:1.9;}
-.thankyou-body{font-size:0.88rem;line-height:2.8;color:#2a2218 !important;}
-.thankyou-note{font-size:0.75rem;color:#9a8870 !important;line-height:2.2;margin-top:2rem;padding-top:1.5rem;border-top:1px solid #c8b49a;}
-footer{background:#1e1810 !important;border-top:1px solid #3a2e20;padding:1.8rem;text-align:center;font-size:0.62rem;color:#c8a87a !important;letter-spacing:0.25em;}
+.thankyou-label{font-family:'Cormorant Garamond',serif;font-size:0.6rem;letter-spacing:0.5em;color:#9a8870;text-transform:uppercase;margin-bottom:1.5rem;display:block;}
+.thankyou-title{font-size:1.1rem;font-weight:200;color:#1e1810;letter-spacing:0.15em;margin-bottom:2rem;line-height:1.9;}
+.thankyou-body{font-size:0.88rem;line-height:2.8;color:#2a2218;}
+.thankyou-note{font-size:0.75rem;color:#9a8870;line-height:2.2;margin-top:2rem;padding-top:1.5rem;border-top:1px solid #c8b49a;}
+footer{background:#1e1810;border-top:1px solid #3a2e20;padding:1.8rem;text-align:center;font-size:0.62rem;color:#c8a87a;letter-spacing:0.25em;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
 </style>
 </head>
@@ -87,139 +97,278 @@ footer{background:#1e1810 !important;border-top:1px solid #3a2e20;padding:1.8rem
     <div class="progress-dot" id="p6"></div>
     <div class="progress-dot" id="p7"></div>
   </div>
+
   <div class="step active" id="step0">
-    <span class="step-label">01 · Body · 身体</span>
-    <div class="step-title">今、身体はどんな状態ですか？</div>
-    <div class="options" id="opts0">
-      <label class="option"><input type="radio" name="q0"><span class="option-dot"></span><span class="option-text">重くて疲れている。動きたくない。</span></label>
-      <label class="option"><input type="radio" name="q0"><span class="option-dot"></span><span class="option-text">力みや緊張が抜けない。肩や首が固い。</span></label>
-      <label class="option"><input type="radio" name="q0"><span class="option-dot"></span><span class="option-text">呼吸が浅い。胸や腹が窮屈な感じ。</span></label>
-      <label class="option"><input type="radio" name="q0"><span class="option-dot"></span><span class="option-text">痛みや不快感がある。気になる部分がある。</span></label>
-      <label class="option"><input type="radio" name="q0"><span class="option-dot"></span><span class="option-text">比較的軽い。特に気になる感じはない。</span></label>
+    <span class="step-label">01 · Profile · 基本情報</span>
+    <div class="step-title">はじめに、基本情報を教えてください。</div>
+    <div class="field-block">
+      <span class="field-label">お名前<span class="req">※必須</span></span>
+      <input type="text" class="input-field" id="userName" placeholder="例：山田 花子" autocomplete="name">
     </div>
-    <button class="btn-next" onclick="nextStep(0)" id="btn0" disabled>次へ</button>
-  </div>
-  <div class="step" id="step1">
-    <span class="step-label">02 · Sleep · 睡眠</span>
-    <div class="step-title">最近の睡眠はどうですか？</div>
-    <div class="options" id="opts1">
-      <label class="option"><input type="radio" name="q1"><span class="option-dot"></span><span class="option-text">眠れない夜が続いている。</span></label>
-      <label class="option"><input type="radio" name="q1"><span class="option-dot"></span><span class="option-text">眠れるが、浅い。疲れが取れない。</span></label>
-      <label class="option"><input type="radio" name="q1"><span class="option-dot"></span><span class="option-text">普通。特に気になることはない。</span></label>
-      <label class="option"><input type="radio" name="q1"><span class="option-dot"></span><span class="option-text">よく眠れている。</span></label>
+    <div class="field-block">
+      <span class="field-label">顧客番号</span>
+      <input type="text" class="input-field" id="customerNo" value="A" placeholder="A001" maxlength="10"
+        oninput="if(!this.value.startsWith('A')){this.value='A'+this.value.replace(/^A*/,'');}"
+        onkeydown="if((event.key==='Backspace'||event.key==='Delete')&&this.value==='A'){event.preventDefault();}">
     </div>
-    <button class="btn-next" onclick="nextStep(1)" id="btn1" disabled>次へ</button>
-  </div>
-  <div class="step" id="step2">
-    <span class="step-label">03 · Life · 生活</span>
-    <div class="step-title">食事や日々の生活リズムは<br>どうですか？</div>
-    <p class="step-sub">最近の傾向を選んでください。</p>
-    <div class="options" id="opts2">
-      <label class="option"><input type="radio" name="q2"><span class="option-dot"></span><span class="option-text">不規則。食べていない日もある。</span></label>
-      <label class="option"><input type="radio" name="q2"><span class="option-dot"></span><span class="option-text">食べてはいるが、偏っている。</span></label>
-      <label class="option"><input type="radio" name="q2"><span class="option-dot"></span><span class="option-text">普通。特に気になることはない。</span></label>
-      <label class="option"><input type="radio" name="q2"><span class="option-dot"></span><span class="option-text">整っている。リズムが安定している。</span></label>
+    <div class="field-block">
+      <span class="field-label">メールアドレス<span class="req">※必須</span></span>
+      <input type="email" class="input-field" id="email" placeholder="例：amrita@example.com" autocomplete="email" inputmode="email">
     </div>
-    <button class="btn-next" onclick="nextStep(2)" id="btn2" disabled>次へ</button>
-  </div>
-  <div class="step" id="step3">
-    <span class="step-label">04 · Stress · ストレス</span>
-    <div class="step-title">今、心や頭にかかっている<br>負荷はどのくらいですか？</div>
-    <div class="options" id="opts3">
-      <label class="option"><input type="radio" name="q3"><span class="option-dot"></span><span class="option-text">かなり多い。限界に近い感じがある。</span></label>
-      <label class="option"><input type="radio" name="q3"><span class="option-dot"></span><span class="option-text">少し多め。じわじわ積み重なっている。</span></label>
-      <label class="option"><input type="radio" name="q3"><span class="option-dot"></span><span class="option-text">普通。うまく付き合えている。</span></label>
-      <label class="option"><input type="radio" name="q3"><span class="option-dot"></span><span class="option-text">あまり感じていない。落ち着いている。</span></label>
+    <div class="field-block">
+      <span class="field-label">LINE登録名<span class="req">※必須</span></span>
+      <input type="text" class="input-field" id="lineName" placeholder="LINEに登録している名前">
     </div>
-    <button class="btn-next" onclick="nextStep(3)" id="btn3" disabled>次へ</button>
-  </div>
-  <div class="step" id="step4">
-    <span class="step-label">05 · Care · 施術について</span>
-    <div class="step-title">施術前に教えてください。</div>
-    <div class="section-block">
-      <div class="section-title">特に気になるところ</div>
-      <textarea id="concern" placeholder="身体の部位、感覚、状態など。気になることをそのままに。&#10;例：肩がずっと張っている、呼吸が浅い、頭が重い"></textarea>
+    <div class="field-block">
+      <span class="field-label">ご予約日<span class="req">※必須</span></span>
+      <input type="date" class="input-field" id="reserveDate">
     </div>
-    <div class="section-block">
-      <div class="section-title">触れてほしくない場所</div>
-      <textarea id="noTouch" placeholder="傷やケガ、手術跡、気になる部位など。なければ空欄で。&#10;例：右膝の手術跡、腰まわり、お腹" style="height:100px;"></textarea>
-    </div>
-    <div class="section-block">
-      <div class="section-title">してほしくないこと</div>
-      <textarea id="noAction" placeholder="動きや強さ、体勢など。なければ空欄で。&#10;例：肩を上に上げる動き、強い圧、うつ伏せになりたくない、髪が乱れること" style="height:100px;"></textarea>
-    </div>
-    <button class="btn-next" onclick="nextStep(4)">次へ</button>
-  </div>
-  <div class="step" id="step5">
-    <span class="step-label">06 · Health · 健康について</span>
-    <div class="step-title">あらかじめ伝えておきたいことが<br>あれば教えてください。</div>
-    <textarea id="health" placeholder="既往症、妊娠中、アレルギーなど。なければ空欄で。&#10;例：腰椎ヘルニア、右肩の可動域が狭い、妊娠中"></textarea>
-    <button class="btn-next" onclick="nextStep(5)" style="margin-top:2rem;">次へ</button>
-  </div>
-  <div class="step" id="step6">
-    <span class="step-label">07 · Story · きっかけ</span>
-    <div class="step-title">Amritaを知ったきっかけを<br>教えてください。</div>
-    <div class="options" id="opts6">
-      <label class="option"><input type="radio" name="q6"><span class="option-dot"></span><span class="option-text">Instagram</span></label>
-      <label class="option"><input type="radio" name="q6"><span class="option-dot"></span><span class="option-text">note</span></label>
-      <label class="option"><input type="radio" name="q6"><span class="option-dot"></span><span class="option-text">知人・友人の紹介</span></label>
-      <label class="option"><input type="radio" name="q6"><span class="option-dot"></span><span class="option-text">検索して</span></label>
-      <label class="option"><input type="radio" name="q6"><span class="option-dot"></span><span class="option-text">その他</span></label>
-    </div>
-    <textarea id="otherText" class="other-textarea" placeholder="どこで知りましたか？" style="height:80px;"></textarea>
-    <div class="section-block">
-      <div class="section-title">Amritaを選んでくれた理由</div>
-      <textarea id="reason" placeholder="例：Esalenマッサージに興味があった、自分の身体と向き合いたかった" style="margin-top:0.8rem;"></textarea>
-    </div>
-    <button class="btn-next" onclick="nextStep(6)" id="btn6" disabled>次へ</button>
-  </div>
-  <div class="step" id="step7">
-    <span class="step-label">08 · Today · 今日について</span>
-    <div class="step-title">今日のセッションへの期待を<br>教えてください。</div>
-    <textarea id="expectation" placeholder="断片でも、感覚でも。ありのままを。&#10;例：とにかく休みたい、身体の感覚を取り戻したい"></textarea>
-    <div class="section-block">
-      <div class="section-title">お名前・番号</div>
-      <div class="input-wrap" style="margin-top:0.8rem;">
-        <input type="text" class="input-field" id="userName" placeholder="お名前">
-        <input type="text" class="input-field" id="customerNo" placeholder="あらかじめお伝えした番号（初回の方は 000）">
+    <div class="field-block">
+      <span class="field-label">受けるメニュー<span class="req">※必須</span></span>
+      <div class="options" id="optsMenu" style="margin-top:0.5rem;">
+        <div class="option" onclick="selectOption(this,'optsMenu')"><span class="option-dot"></span><span class="option-text">60分モニター</span></div>
+        <div class="option" onclick="selectOption(this,'optsMenu')"><span class="option-dot"></span><span class="option-text">90分モニター</span></div>
+        <div class="option" onclick="selectOption(this,'optsMenu')"><span class="option-dot"></span><span class="option-text">60分通常</span></div>
+        <div class="option" onclick="selectOption(this,'optsMenu')"><span class="option-dot"></span><span class="option-text">90分通常</span></div>
       </div>
     </div>
-    <button class="btn-next" onclick="doSubmit()">送信する</button>
+    <div id="err0" class="error-msg"></div>
+    <button class="btn-next" onclick="validateStep0()">次へ</button>
+  </div>
+
+  <div class="step" id="step1">
+    <span class="step-label">02 · Body · 身体</span>
+    <div class="step-title">今、身体はどんな状態ですか？</div>
+    <div class="options" id="opts1">
+      <div class="option" onclick="selectOption(this,'opts1')"><span class="option-dot"></span><span class="option-text">重くて疲れている。動きたくない。</span></div>
+      <div class="option" onclick="selectOption(this,'opts1')"><span class="option-dot"></span><span class="option-text">力みや緊張が抜けない。肩や首が固い。</span></div>
+      <div class="option" onclick="selectOption(this,'opts1')"><span class="option-dot"></span><span class="option-text">呼吸が浅い。胸や腹が窮屈な感じ。</span></div>
+      <div class="option" onclick="selectOption(this,'opts1')"><span class="option-dot"></span><span class="option-text">痛みや不快感がある。気になる部分がある。</span></div>
+      <div class="option" onclick="selectOption(this,'opts1')"><span class="option-dot"></span><span class="option-text">比較的軽い。特に気になる感じはない。</span></div>
+    </div>
+    <div id="err1" class="error-msg">選択してください。</div>
+    <button class="btn-next" onclick="validateRadio('opts1','err1',2)">次へ</button>
+  </div>
+
+  <div class="step" id="step2">
+    <span class="step-label">03 · Area · 気になる場所</span>
+    <div class="step-title">特に気になる場所はありますか？<span class="note-small">複数選択可</span></div>
+    <div class="cb-list" id="cb2">
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">首</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">肩</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">背中</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">腰</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">お腹</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">脚</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">足裏</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">頭</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">腕</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">特になし</span></div>
+      <div class="cb-item" onclick="toggleCbOther(this,'other2')"><span class="cb-box"></span><span class="cb-text">その他</span></div>
+    </div>
+    <div class="other-wrap" id="other2">
+      <textarea placeholder="気になる場所を教えてください。" id="otherText2" style="height:80px;margin-top:0.5rem;"></textarea>
+    </div>
+    <button class="btn-next" onclick="nextStep(2)" style="margin-top:2rem;">次へ</button>
+  </div>
+
+  <div class="step" id="step3">
+    <span class="step-label">04 · Mind · 気持ち</span>
+    <div class="step-title">今の気持ちに近いものはありますか？<span class="note-small">複数選択可</span></div>
+    <div class="cb-list" id="cb3">
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">とにかく休みたい</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">頭が休まらない</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">緊張している</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">不安がある</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">ぼんやりしている</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">自分の状態がよくわからない</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">比較的落ち着いている</span></div>
+      <div class="cb-item" onclick="toggleCbOther(this,'other3')"><span class="cb-box"></span><span class="cb-text">その他</span></div>
+    </div>
+    <div class="other-wrap" id="other3">
+      <textarea placeholder="今の気持ちを教えてください。" id="otherText3" style="height:80px;margin-top:0.5rem;"></textarea>
+    </div>
+    <div class="field-block" style="margin-top:2rem;">
+      <span class="field-label">普段、身体の感覚を感じる時間はありますか？</span>
+      <div class="options" id="opts3sense" style="margin-top:0.5rem;">
+        <div class="option" onclick="selectOption(this,'opts3sense')"><span class="option-dot"></span><span class="option-text">よくある</span></div>
+        <div class="option" onclick="selectOption(this,'opts3sense')"><span class="option-dot"></span><span class="option-text">時々ある</span></div>
+        <div class="option" onclick="selectOption(this,'opts3sense')"><span class="option-dot"></span><span class="option-text">ほとんどない</span></div>
+        <div class="option" onclick="selectOption(this,'opts3sense')"><span class="option-dot"></span><span class="option-text">わからない</span></div>
+      </div>
+    </div>
+    <button class="btn-next" onclick="nextStep(3)" style="margin-top:2rem;">次へ</button>
+  </div>
+
+  <div class="step" id="step4">
+    <span class="step-label">05 · Hope · 今日について</span>
+    <div class="step-title">今日、どんな時間になったら嬉しいですか？</div>
+    <div class="options" id="opts4">
+      <div class="option" onclick="selectOption(this,'opts4')"><span class="option-dot"></span><span class="option-text">深く休みたい</span></div>
+      <div class="option" onclick="selectOption(this,'opts4')"><span class="option-dot"></span><span class="option-text">身体をゆるめたい</span></div>
+      <div class="option" onclick="selectOption(this,'opts4')"><span class="option-dot"></span><span class="option-text">頭を静かにしたい</span></div>
+      <div class="option" onclick="selectOption(this,'opts4')"><span class="option-dot"></span><span class="option-text">感覚を取り戻したい</span></div>
+      <div class="option" onclick="selectOption(this,'opts4')"><span class="option-dot"></span><span class="option-text">今の自分を感じたい</span></div>
+      <div class="option" onclick="selectOption(this,'opts4')"><span class="option-dot"></span><span class="option-text">まだよくわからない</span></div>
+      <div class="option" onclick="selectOption(this,'opts4')"><span class="option-dot"></span><span class="option-text">その他</span></div>
+    </div>
+    <div class="other-wrap" id="other4" style="margin-top:0.5rem;">
+      <textarea placeholder="どんな時間にしたいか教えてください。" id="otherText4" style="height:80px;"></textarea>
+    </div>
+    <div id="err4" class="error-msg">選択してください。</div>
+    <button class="btn-next" onclick="validateStep4()" style="margin-top:1.5rem;">次へ</button>
+  </div>
+
+  <div class="step" id="step5">
+    <span class="step-label">06 · Care · 施術について</span>
+    <div class="step-title">施術前に教えてください。</div>
+    <div class="field-block">
+      <span class="field-label">圧の好み</span>
+      <div class="options" id="opts5pressure" style="margin-top:0.5rem;">
+        <div class="option" onclick="selectOption(this,'opts5pressure')"><span class="option-dot"></span><span class="option-text">弱めが好き</span></div>
+        <div class="option" onclick="selectOption(this,'opts5pressure')"><span class="option-dot"></span><span class="option-text">普通くらい</span></div>
+        <div class="option" onclick="selectOption(this,'opts5pressure')"><span class="option-dot"></span><span class="option-text">しっかりめが好き</span></div>
+        <div class="option" onclick="selectOption(this,'opts5pressure')"><span class="option-dot"></span><span class="option-text">深く届く圧が好き</span></div>
+        <div class="option" onclick="selectOption(this,'opts5pressure')"><span class="option-dot"></span><span class="option-text">その都度確認してほしい</span></div>
+      </div>
+    </div>
+    <div class="field-block" style="margin-top:2rem;">
+      <span class="field-label">触れてほしくない場所</span>
+      <textarea id="noTouch" placeholder="傷やケガ、手術跡など。なければ空欄で。" style="height:80px;margin-top:0.3rem;"></textarea>
+    </div>
+    <div class="field-block" style="margin-top:2rem;">
+      <span class="field-label">苦手なこと<span class="note-small">複数選択可</span></span>
+      <div class="cb-list" id="cb5" style="margin-top:0.5rem;">
+        <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">強い圧</span></div>
+        <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">お腹に触れられること</span></div>
+        <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">足裏</span></div>
+        <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">首まわり</span></div>
+        <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">香り</span></div>
+        <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">会話が多いこと</span></div>
+        <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">特になし</span></div>
+        <div class="cb-item" onclick="toggleCbOther(this,'other5')"><span class="cb-box"></span><span class="cb-text">その他</span></div>
+      </div>
+      <div class="other-wrap" id="other5">
+        <textarea placeholder="その他、苦手なことを教えてください。" id="otherText5" style="height:80px;margin-top:0.5rem;"></textarea>
+      </div>
+    </div>
+    <button class="btn-next" onclick="nextStep(5)" style="margin-top:2rem;">次へ</button>
+  </div>
+
+  <div class="step" id="step6">
+    <span class="step-label">07 · Health · 健康について</span>
+    <div class="step-title">あらかじめ伝えておきたいことが<br>あれば教えてください。</div>
+    <div class="field-block">
+      <span class="field-label">通院中・服薬中・手術後・妊娠中など</span>
+      <div class="options" id="opts6health" style="margin-top:0.5rem;">
+        <div class="option" onclick="selectOption(this,'opts6health')"><span class="option-dot"></span><span class="option-text">ある</span></div>
+        <div class="option" onclick="selectOption(this,'opts6health')"><span class="option-dot"></span><span class="option-text">ない</span></div>
+      </div>
+      <textarea id="health" placeholder="差し支えない範囲で教えてください。" style="height:90px;margin-top:0.5rem;"></textarea>
+    </div>
+    <div class="field-block" style="margin-top:2rem;">
+      <span class="field-label">アレルギーや肌トラブル</span>
+      <div class="options" id="opts6allergy" style="margin-top:0.5rem;">
+        <div class="option" onclick="selectOption(this,'opts6allergy')"><span class="option-dot"></span><span class="option-text">ある</span></div>
+        <div class="option" onclick="selectOption(this,'opts6allergy')"><span class="option-dot"></span><span class="option-text">ない</span></div>
+        <div class="option" onclick="selectOption(this,'opts6allergy')"><span class="option-dot"></span><span class="option-text">わからない</span></div>
+      </div>
+      <textarea id="allergy" placeholder="内容を教えてください。" style="height:80px;margin-top:0.5rem;"></textarea>
+    </div>
+    <button class="btn-next" onclick="nextStep(6)" style="margin-top:2rem;">次へ</button>
+  </div>
+
+  <div class="step" id="step7">
+    <span class="step-label">08 · Confirm · 確認</span>
+    <div class="step-title">最後に確認してください。</div>
+    <div class="field-block">
+      <span class="field-label">施術前に伝えておきたいこと</span>
+      <textarea id="message" placeholder="その他、気になることがあれば。" style="height:100px;margin-top:0.3rem;"></textarea>
+    </div>
+    <div class="field-block" style="margin-top:2rem;">
+      <p class="agree-intro">ご確認いただけましたら、すべての項目にチェックをお願いします。</p>
+      <label class="agree-row">
+        <input type="checkbox" id="agree1" onchange="checkAgree()">
+        <span class="agree-text">体調に無理のない範囲で施術を受けます</span>
+      </label>
+      <label class="agree-row">
+        <input type="checkbox" id="agree2" onchange="checkAgree()">
+        <span class="agree-text">必要なことは事前に伝えます</span>
+      </label>
+      <label class="agree-row">
+        <input type="checkbox" id="agree3" onchange="checkAgree()">
+        <span class="agree-text">オイルを使用する施術であることを確認しました</span>
+      </label>
+    </div>
+    <button class="btn-next" onclick="doSubmit()" id="btnSubmit" disabled>送信する</button>
   </div>
 </div>
+
 <div class="thankyou" id="thankyou">
   <span class="thankyou-label">Thank you</span>
   <div class="thankyou-title">ありがとうございます。</div>
   <div class="thankyou-body">回答を受け取りました。<br><br>まもなくセッションを始めます。<br>どうぞゆっくりお待ちください。</div>
   <p class="thankyou-note">ご不明な点は、LINEよりお気軽にどうぞ。</p>
 </div>
+
 <footer>© Amrita — 埼玉県 秩父市</footer>
+
 <script>
 const answers = {};
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxYwB1C7buF48ZUBAVCbeR0ohqgE_y3TvJKig-cw7xpzV-EAWoq4i8qssagoo0UVH1H/exec";
 
-document.querySelectorAll('.options').forEach((opts) => {
-  opts.querySelectorAll('.option').forEach(opt => {
-    opt.addEventListener('click', () => {
-      opts.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
-      opt.classList.add('selected');
-      const key = opts.id.replace('opts', 'q');
-      answers[key] = opt.querySelector('.option-text').textContent;
-      const btnId = 'btn' + opts.id.replace('opts', '');
-      const btn = document.getElementById(btnId);
-      if (btn) btn.disabled = false;
-      if (opts.id === 'opts6') {
-        const otherTextarea = document.getElementById('otherText');
-        if (answers['q6'] === 'その他') {
-          otherTextarea.classList.add('show');
-        } else {
-          otherTextarea.classList.remove('show');
-          otherTextarea.value = '';
-        }
-      }
-    });
-  });
-});
+function selectOption(el, groupId) {
+  document.querySelectorAll('#' + groupId + ' .option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  answers[groupId] = el.querySelector('.option-text').textContent;
+  if (groupId === 'opts4') {
+    const other4 = document.getElementById('other4');
+    if (answers['opts4'] === 'その他') {
+      other4.classList.add('show');
+    } else {
+      other4.classList.remove('show');
+      document.getElementById('otherText4').value = '';
+    }
+  }
+}
+
+function toggleCb(el) {
+  el.classList.toggle('selected');
+}
+
+function toggleCbOther(el, wrapperId) {
+  el.classList.toggle('selected');
+  const wrap = document.getElementById(wrapperId);
+  if (el.classList.contains('selected')) {
+    wrap.classList.add('show');
+  } else {
+    wrap.classList.remove('show');
+    const ta = wrap.querySelector('textarea');
+    if (ta) ta.value = '';
+  }
+}
+
+function getChecked(listId) {
+  const items = document.querySelectorAll('#' + listId + ' .cb-item.selected .cb-text');
+  return Array.from(items).map(i => i.textContent).join('、');
+}
+
+function getCheckedWithOther(listId, otherTextId) {
+  let checked = getChecked(listId);
+  const otherEl = document.getElementById(otherTextId);
+  if (otherEl && otherEl.closest('.other-wrap.show')) {
+    const otherVal = otherEl.value.trim();
+    if (otherVal) checked = checked.replace('その他', 'その他：' + otherVal);
+  }
+  return checked;
+}
+
+function checkAgree() {
+  const ok = document.getElementById('agree1').checked &&
+             document.getElementById('agree2').checked &&
+             document.getElementById('agree3').checked;
+  document.getElementById('btnSubmit').disabled = !ok;
+}
 
 function updateProgress(current) {
   for (let i = 0; i <= 7; i++) {
@@ -236,33 +385,98 @@ function nextStep(current) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function doSubmit() {
+function validateStep0() {
   const name = document.getElementById('userName').value.trim();
-  const customerNo = document.getElementById('customerNo').value.trim();
-  if (!name || !customerNo) {
-    alert('お名前と番号を入力してください。');
+  const email = document.getElementById('email').value.trim();
+  const lineName = document.getElementById('lineName').value.trim();
+  const reserveDate = document.getElementById('reserveDate').value;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const err = document.getElementById('err0');
+
+  if (!name || name.length < 2 || /^[0-9]+$/.test(name)) {
+    err.textContent = 'お名前を正しく入力してください。';
+    err.classList.add('show');
+    document.getElementById('userName').classList.add('invalid');
     return;
   }
-  const otherText = document.getElementById('otherText').value.trim();
-  const howKnew = answers['q6'] === 'その他' && otherText
-    ? 'その他：' + otherText
-    : (answers['q6'] || '');
+  document.getElementById('userName').classList.remove('invalid');
+
+  if (!email || !emailRegex.test(email)) {
+    err.textContent = 'メールアドレスを正しく入力してください。';
+    err.classList.add('show');
+    document.getElementById('email').classList.add('invalid');
+    return;
+  }
+  document.getElementById('email').classList.remove('invalid');
+
+  if (!lineName || lineName.length < 2) {
+    err.textContent = 'LINE登録名を入力してください（2文字以上）。';
+    err.classList.add('show');
+    document.getElementById('lineName').classList.add('invalid');
+    return;
+  }
+  document.getElementById('lineName').classList.remove('invalid');
+
+  if (!reserveDate) {
+    err.textContent = 'ご予約日を選択してください。';
+    err.classList.add('show');
+    return;
+  }
+  if (!answers['optsMenu']) {
+    err.textContent = 'メニューを選択してください。';
+    err.classList.add('show');
+    return;
+  }
+
+  err.classList.remove('show');
+  nextStep(0);
+}
+
+function validateRadio(optsId, errId, nextStepNum) {
+  if (!answers[optsId]) {
+    document.getElementById(errId).classList.add('show');
+    return;
+  }
+  document.getElementById(errId).classList.remove('show');
+  nextStep(nextStepNum - 1);
+}
+
+function validateStep4() {
+  if (!answers['opts4']) {
+    document.getElementById('err4').classList.add('show');
+    return;
+  }
+  document.getElementById('err4').classList.remove('show');
+  nextStep(4);
+}
+
+function doSubmit() {
+  const hope4 = answers['opts4'] || '';
+  const other4 = document.getElementById('otherText4').value.trim();
+  const hopeVal = (hope4 === 'その他' && other4) ? 'その他：' + other4 : hope4;
+
   const params = new URLSearchParams({
-    name: name,
-    customerNo: customerNo,
-    body: answers['q0'] || '',
-    sleep: answers['q1'] || '',
-    life: answers['q2'] || '',
-    stress: answers['q3'] || '',
-    concern: document.getElementById('concern').value.trim(),
+    name: document.getElementById('userName').value.trim(),
+    customerNo: document.getElementById('customerNo').value.trim(),
+    email: document.getElementById('email').value.trim(),
+    lineName: document.getElementById('lineName').value.trim(),
+    reserveDate: document.getElementById('reserveDate').value,
+    menu: answers['optsMenu'] || '',
+    body: answers['opts1'] || '',
+    concern: getCheckedWithOther('cb2', 'otherText2'),
+    feeling: getCheckedWithOther('cb3', 'otherText3'),
+    senseTime: answers['opts3sense'] || '',
+    hope: hopeVal,
+    pressure: answers['opts5pressure'] || '',
     noTouch: document.getElementById('noTouch').value.trim(),
-    noAction: document.getElementById('noAction').value.trim(),
+    noAction: getCheckedWithOther('cb5', 'otherText5'),
     health: document.getElementById('health').value.trim(),
-    howKnew: howKnew,
-    reason: document.getElementById('reason').value.trim(),
-    expectation: document.getElementById('expectation').value.trim(),
+    allergy: document.getElementById('allergy').value.trim(),
+    message: document.getElementById('message').value.trim(),
+    agree: '同意済み',
     callback: 'cb'
   });
+
   const script = document.createElement('script');
   script.src = SCRIPT_URL + '?' + params.toString();
   window.cb = function () {
