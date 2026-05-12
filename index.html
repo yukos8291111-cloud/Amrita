@@ -5,11 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>はじめての方へ | Amrita</title>
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
     background: #faf9f7;
@@ -22,45 +18,62 @@
   .page {
     max-width: 620px;
     margin: 0 auto;
-    padding: 80px 32px 140px;
   }
 
-  .label {
+  .hero {
+    padding: 72px 32px 64px;
+    border-bottom: 1px solid #e8e2da;
+  }
+
+  .hero-label {
     font-family: Georgia, serif;
     font-size: 10px;
     letter-spacing: 0.3em;
     color: #b0a090;
     text-transform: uppercase;
-    margin-bottom: 48px;
     display: block;
+    margin-bottom: 28px;
   }
 
-  .opening {
-    margin-bottom: 16px;
+  .hero-logo {
+    font-family: Georgia, serif;
+    font-size: 52px;
+    font-style: italic;
+    color: #2c2c2c;
+    letter-spacing: 0.04em;
+    display: block;
+    margin-bottom: 40px;
   }
 
-  .opening p {
+  .hero-copy {
     font-size: 15px;
-    line-height: 2.4;
+    line-height: 2.6;
     color: #3a3530;
+    margin-bottom: 12px;
   }
 
-  .opening .tagline {
+  .hero-tagline {
     font-size: 13px;
     color: #9a8c7e;
     letter-spacing: 0.1em;
-    margin-top: 16px;
+    display: block;
+    margin-bottom: 40px;
   }
 
-  .intro {
-    margin-top: 40px;
+  .hero-intro {
     font-size: 14px;
     color: #7a6e64;
     line-height: 2;
+    padding-top: 32px;
+    border-top: 1px solid #e8e2da;
   }
 
   .section {
-    margin-top: 96px;
+    padding: 80px 32px 0;
+  }
+
+  .section:last-child {
+    padding-bottom: 120px;
   }
 
   .section-title {
@@ -73,9 +86,7 @@
     display: block;
   }
 
-  .keywords {
-    margin-bottom: 56px;
-  }
+  .keywords { margin-bottom: 56px; }
 
   .keyword-item {
     display: flex;
@@ -94,10 +105,7 @@
     min-width: 110px;
   }
 
-  .keyword-ja {
-    font-size: 13px;
-    color: #7a6e64;
-  }
+  .keyword-ja { font-size: 13px; color: #7a6e64; }
 
   .keyword-integration {
     margin-top: 24px;
@@ -111,30 +119,17 @@
     color: #3a3530;
     margin-bottom: 36px;
   }
+  .body-text p:last-child { margin-bottom: 0; }
 
-  .body-text p:last-child {
-    margin-bottom: 0;
-  }
-
-  .breath {
-    height: 88px;
-  }
+  .breath { height: 88px; }
 
   .depth {
     font-size: 15px;
     line-height: 2.6;
     color: #3a3530;
   }
-
-  .depth .line {
-    display: block;
-  }
-
-  .depth .gap {
-    display: block;
-    height: 32px;
-  }
-
+  .depth .line { display: block; }
+  .depth .gap { display: block; height: 32px; }
   .depth .note {
     display: block;
     margin-top: 8px;
@@ -142,7 +137,6 @@
     color: #7a6e64;
     line-height: 2;
   }
-
   .depth .closing {
     display: block;
     margin-top: 40px;
@@ -150,20 +144,15 @@
     color: #7a6e64;
   }
 
-  .for-whom {
-    list-style: none;
-    margin-bottom: 32px;
-  }
-
+  .for-whom { list-style: none; margin-bottom: 32px; }
   .for-whom li {
     font-size: 14px;
     color: #3a3530;
     line-height: 2;
-    padding-left: 1em;
+    padding-left: 1.2em;
     position: relative;
     margin-bottom: 4px;
   }
-
   .for-whom li::before {
     content: '―';
     position: absolute;
@@ -171,19 +160,13 @@
     color: #c0b0a0;
     font-size: 12px;
   }
-
   .for-whom-closing {
     font-size: 14px;
     color: #7a6e64;
     margin-top: 24px;
   }
 
-  .flow {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
+  .flow { display: flex; flex-direction: column; }
   .flow-item {
     display: flex;
     gap: 20px;
@@ -191,11 +174,7 @@
     padding: 20px 0;
     border-bottom: 1px solid #ede8e2;
   }
-
-  .flow-item:first-child {
-    border-top: 1px solid #ede8e2;
-  }
-
+  .flow-item:first-child { border-top: 1px solid #ede8e2; }
   .flow-num {
     font-family: Georgia, serif;
     font-size: 11px;
@@ -204,7 +183,6 @@
     min-width: 24px;
     padding-top: 2px;
   }
-
   .flow-content strong {
     font-size: 14px;
     color: #2c2c2c;
@@ -212,17 +190,13 @@
     display: block;
     margin-bottom: 4px;
   }
-
   .flow-content span {
     font-size: 13px;
     color: #7a6e64;
     line-height: 1.8;
   }
 
-  .menu-group {
-    margin-bottom: 48px;
-  }
-
+  .menu-group { margin-bottom: 48px; }
   .menu-group-label {
     font-size: 11px;
     color: #b0a090;
@@ -230,7 +204,6 @@
     margin-bottom: 20px;
     display: block;
   }
-
   .menu-item {
     display: flex;
     justify-content: space-between;
@@ -238,22 +211,9 @@
     padding: 16px 0;
     border-bottom: 1px solid #ede8e2;
   }
-
-  .menu-item:first-of-type {
-    border-top: 1px solid #ede8e2;
-  }
-
-  .menu-name {
-    font-size: 14px;
-    color: #2c2c2c;
-  }
-
-  .menu-desc {
-    font-size: 12px;
-    color: #9a8c7e;
-    margin-top: 4px;
-  }
-
+  .menu-item:first-of-type { border-top: 1px solid #ede8e2; }
+  .menu-name { font-size: 14px; color: #2c2c2c; }
+  .menu-desc { font-size: 12px; color: #9a8c7e; margin-top: 4px; }
   .menu-price {
     font-family: Georgia, serif;
     font-size: 14px;
@@ -262,11 +222,7 @@
     margin-left: 16px;
   }
 
-  .info-list {
-    list-style: none;
-    margin-bottom: 24px;
-  }
-
+  .info-list { list-style: none; margin-bottom: 24px; }
   .info-list li {
     font-size: 14px;
     color: #3a3530;
@@ -274,7 +230,6 @@
     padding-left: 1em;
     position: relative;
   }
-
   .info-list li::before {
     content: '·';
     position: absolute;
@@ -284,60 +239,54 @@
 
   .info-note {
     font-size: 12px;
-    color: #9a8c7e;
+    color: #7a6e64;
     line-height: 2;
     margin-top: 16px;
     padding-top: 16px;
     border-top: 1px solid #ede8e2;
   }
 
-  .link-area {
-    margin-top: 24px;
-  }
+  .link-area { margin-top: 28px; }
 
   .link-sub {
-    display: block;
+    display: inline-block;
     font-size: 13px;
-    color: #9a8c7e;
-    text-decoration: none;
-    margin-bottom: 8px;
-    letter-spacing: 0.05em;
-  }
-
-  .link-sub:hover {
     color: #5a5048;
+    text-decoration: none;
+    background: #f0ebe4;
+    border: 1px solid #c0b0a0;
+    padding: 10px 20px;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
   }
+  .link-sub:hover { background: #e8e0d6; }
 
   .link-main {
     display: inline-block;
-    margin-top: 48px;
     font-size: 13px;
-    color: #3a3530;
+    color: #faf9f7;
+    background: #3a3530;
     letter-spacing: 0.15em;
     text-decoration: none;
-    border-bottom: 1px solid #c0b0a0;
-    padding-bottom: 4px;
+    padding: 14px 32px;
+    border-radius: 2px;
   }
-
-  .link-main:hover {
-    color: #2c2c2c;
-    border-color: #5a5048;
-  }
+  .link-main:hover { background: #2c2c2c; }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <span class="label">For first time visitors</span>
-
-  <div class="opening">
-    <p>
+  <div class="hero">
+    <span class="hero-label">For first time visitors</span>
+    <span class="hero-logo">Amrita</span>
+    <p class="hero-copy">
       何かになるためではなく、<br>
       今の自分の身体へ、<br>
       静かに帰っていく。
     </p>
-    <p class="tagline">感覚へ。呼吸へ。身体へ。</p>
-    <p class="intro">
+    <span class="hero-tagline">感覚へ。呼吸へ。身体へ。</span>
+    <p class="hero-intro">
       Amritaは、エサレンマッサージをベースにした、<br>
       女性限定のプライベートサロンです。
     </p>
@@ -345,7 +294,6 @@
 
   <div class="section">
     <span class="section-title">Esalen Massage</span>
-
     <div class="keywords">
       <div class="keyword-item">
         <span class="keyword-en">Presence</span>
