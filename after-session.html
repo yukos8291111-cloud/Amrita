@@ -96,6 +96,12 @@ body {
   font-size: 11px;
   margin-left: 6px;
 }
+.error-msg {
+  color: #c0785a;
+  font-size: 12px;
+  margin-top: 6px;
+  display: none;
+}
 input[type="text"],
 input[type="date"],
 textarea {
@@ -220,18 +226,21 @@ button#submitBtn:disabled {
       <div class="step-title">はじめに、確認事項を教えてください。</div>
       <div class="field">
         <label>お名前<span class="required">※必須</span></label>
-        <input type="text" name="name" required placeholder="例：山田 花子">
+        <input type="text" id="name" name="name" placeholder="例：山田 花子">
+        <div class="error-msg" id="nameError">お名前を入力してください。</div>
       </div>
       <div class="field">
         <label>顧客番号<span class="required">※必須</span></label>
         <div style="display:flex;align-items:center;gap:4px;">
           <span style="font-size:15px;color:#2e2620;">A</span>
-          <input type="text" name="customerNo" required placeholder="001" style="flex:1;" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+          <input type="text" id="customerNo" name="customerNo" placeholder="001" style="flex:1;" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
         </div>
+        <div class="error-msg" id="customerNoError">顧客番号を入力してください。</div>
       </div>
       <div class="field">
         <label>本日の施術日<span class="required">※必須</span></label>
-        <input type="date" name="sessionDate" required>
+        <input type="date" id="sessionDate" name="sessionDate">
+        <div class="error-msg" id="sessionDateError">施術日を選択してください。</div>
       </div>
     </div>
 
@@ -391,19 +400,42 @@ document.querySelectorAll('input[name="next"]').forEach(function(r) {
 });
 
 function submitForm() {
-  const btn = document.getElementById('submitBtn');
+  var name = document.getElementById('name').value.trim();
+  var customerNo = document.getElementById('customerNo').value.trim();
+  var sessionDate = document.getElementById('sessionDate').value.trim();
+  var valid = true;
+
+  document.getElementById('nameError').style.display = 'none';
+  document.getElementById('customerNoError').style.display = 'none';
+  document.getElementById('sessionDateError').style.display = 'none';
+
+  if (!name) {
+    document.getElementById('nameError').style.display = 'block';
+    valid = false;
+  }
+  if (!customerNo) {
+    document.getElementById('customerNoError').style.display = 'block';
+    valid = false;
+  }
+  if (!sessionDate) {
+    document.getElementById('sessionDateError').style.display = 'block';
+    valid = false;
+  }
+  if (!valid) return;
+
+  var btn = document.getElementById('submitBtn');
   btn.disabled = true;
   btn.textContent = '送信中...';
 
-  const fd = new FormData(document.getElementById('afterForm'));
-  const bodyVals = fd.getAll('body').join('、');
-  const customerNo = 'A' + (fd.get('customerNo') || '');
+  var fd = new FormData(document.getElementById('afterForm'));
+  var bodyVals = fd.getAll('body').join('、');
+  var customerNoVal = 'A' + customerNo;
 
-  const params = new URLSearchParams({
+  var params = new URLSearchParams({
     formType: 'after',
-    name: fd.get('name') || '',
-    customerNo: customerNo,
-    sessionDate: fd.get('sessionDate') || '',
+    name: name,
+    customerNo: customerNoVal,
+    sessionDate: sessionDate,
     body: bodyVals,
     bodyOther: fd.get('bodyOther') || '',
     breath: fd.get('breath') || '',
@@ -420,19 +452,10 @@ function submitForm() {
     callback: 'cb'
   });
 
-  const script = document.createElement('script');
+  var script = document.createElement('script');
   script.src = 'https://script.google.com/macros/s/AKfycbxYwB1C7buF48ZUBAVCbeR0ohqgE_y3TvJKig-cw7xpzV-EAWoq4i8qssagoo0UVH1H/exec?' + params.toString();
   window.cb = function() {
-    document.querySelector('.form-wrap').innerHTML = `
-      <div style="text-align:center;padding:80px 24px;">
-        <div style="font-size:52px;font-style:italic;letter-spacing:8px;color:#2e2620;margin-bottom:24px;">Amrita</div>
-        <div style="width:1px;height:40px;background:linear-gradient(to bottom,#c8b89a,transparent);margin:0 auto 32px;"></div>
-        <p style="font-size:18px;letter-spacing:3px;color:#2e2620;margin-bottom:20px;">ありがとうございました。</p>
-        <p style="font-size:14px;color:#a08870;line-height:2.2;letter-spacing:1px;">
-          今日の時間が、<br>これからの自分の中で<br>静かに続いていきますように。
-        </p>
-      </div>
-    `;
+    document.querySelector('.form-wrap').innerHTML = '<div style="text-align:center;padding:80px 24px;"><div style="font-size:52px;font-style:italic;letter-spacing:8px;color:#2e2620;margin-bottom:24px;">Amrita</div><div style="width:1px;height:40px;background:linear-gradient(to bottom,#c8b89a,transparent);margin:0 auto 32px;"></div><p style="font-size:18px;letter-spacing:3px;color:#2e2620;margin-bottom:20px;">ありがとうございました。</p><p style="font-size:14px;color:#a08870;line-height:2.2;letter-spacing:1px;">今日の時間が、<br>これからの自分の中で<br>静かに続いていきますように。</p></div>';
   };
   document.body.appendChild(script);
 }
