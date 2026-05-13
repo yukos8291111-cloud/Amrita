@@ -1,0 +1,423 @@
+了解です。after-session.htmlの全文です。
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>施術後の記録 | Amrita</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #faf9f7;
+  color: #2e2620;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.8;
+}
+.hero {
+  text-align: center;
+  padding: 72px 32px 48px;
+  border-bottom: 1px solid rgba(180,160,130,0.2);
+}
+.logo {
+  font-size: 52px;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 8px;
+  color: #2e2620;
+  margin-bottom: 16px;
+}
+.hero-sub {
+  font-size: 11px;
+  letter-spacing: 8px;
+  color: #a08870;
+  margin-bottom: 32px;
+}
+.v-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, #c8b89a, transparent);
+  margin: 0 auto 32px;
+}
+.section-label {
+  font-size: 11px;
+  letter-spacing: 8px;
+  color: #a08870;
+  margin-bottom: 12px;
+}
+.hero-title {
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 6px;
+  color: #2e2620;
+  margin-bottom: 24px;
+}
+.hero-desc {
+  font-size: 15px;
+  color: #6e5e50;
+  line-height: 2.2;
+  letter-spacing: 1px;
+}
+.form-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+.step {
+  padding: 48px 0;
+  border-bottom: 1px solid rgba(180,160,130,0.15);
+}
+.step-label {
+  font-size: 10px;
+  letter-spacing: 8px;
+  color: #a08870;
+  margin-bottom: 8px;
+}
+.step-title {
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  color: #2e2620;
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+.field {
+  margin-bottom: 32px;
+}
+.field label {
+  display: block;
+  font-size: 14px;
+  color: #5e4e40;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  line-height: 1.8;
+}
+.required {
+  color: #c0785a;
+  font-size: 11px;
+  margin-left: 6px;
+  letter-spacing: 0;
+}
+input[type="text"],
+input[type="date"],
+textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(180,160,130,0.5);
+  padding: 10px 0;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+  font-size: 15px;
+  color: #2e2620;
+  outline: none;
+  letter-spacing: 1px;
+}
+input[type="text"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+  border-bottom-color: #a08870;
+}
+textarea {
+  resize: none;
+  min-height: 80px;
+  line-height: 1.8;
+}
+.radio-group, .check-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.radio-item, .check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+.radio-item input, .check-item input {
+  width: auto;
+  border: none;
+  margin-top: 3px;
+  flex-shrink: 0;
+  accent-color: #a08870;
+}
+.radio-item span, .check-item span {
+  font-size: 15px;
+  color: #3e2e20;
+  letter-spacing: 1px;
+  line-height: 1.7;
+}
+.other-input {
+  margin-top: 8px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(180,160,130,0.4);
+  padding: 8px 0;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+  font-size: 14px;
+  color: #2e2620;
+  outline: none;
+  display: none;
+}
+.submit-wrap {
+  text-align: center;
+  padding-top: 56px;
+}
+.submit-note {
+  font-size: 13px;
+  color: #a08870;
+  margin-bottom: 32px;
+  line-height: 2;
+  letter-spacing: 1px;
+}
+button[type="submit"] {
+  background: transparent;
+  border: 1px solid #a08870;
+  color: #5e4e40;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+  font-size: 15px;
+  letter-spacing: 4px;
+  padding: 16px 56px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+button[type="submit"]:hover {
+  background: #a08870;
+  color: #faf9f7;
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="logo">Amrita</div>
+  <div class="hero-sub">ESALEN MASSAGE</div>
+  <div class="v-line"></div>
+  <div class="section-label">AFTER SESSION</div>
+  <div class="hero-title">施術後の記録</div>
+  <div class="hero-desc">
+    施術のあと、<br>
+    今の身体や感覚を少しだけ残してください。<br>
+    <br>
+    うまく言葉にできなくて大丈夫です。<br>
+    今感じていることを、そのまま。
+  </div>
+</div>
+
+<div class="form-wrap">
+  <form id="afterForm">
+
+    <div class="step">
+      <div class="step-label">01 · PROFILE · 基本情報</div>
+      <div class="step-title">はじめに、確認事項を教えてください。</div>
+      <div class="field">
+        <label>お名前<span class="required">※必須</span></label>
+        <input type="text" name="name" required placeholder="例：山田 花子">
+      </div>
+      <div class="field">
+        <label>顧客番号<span class="required">※必須</span></label>
+        <div style="display:flex;align-items:center;gap:4px;">
+          <span style="font-size:15px;color:#2e2620;">A</span>
+          <input type="text" name="customerNo" id="customerNo" required placeholder="001" style="flex:1;" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+        </div>
+      </div>
+      <div class="field">
+        <label>本日の施術日<span class="required">※必須</span></label>
+        <input type="date" name="sessionDate" required>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">02 · BODY · 身体の感覚</div>
+      <div class="step-title">今の身体の感じに<br>近いものを選んでください。</div>
+      <div class="field">
+        <label style="margin-bottom:16px;display:block;font-size:13px;color:#a08870;">複数選択できます</label>
+        <div class="check-group">
+          <label class="check-item"><input type="checkbox" name="body" value="身体が軽い"><span>身体が軽い</span></label>
+          <label class="check-item"><input type="checkbox" name="body" value="呼吸がしやすい"><span>呼吸がしやすい</span></label>
+          <label class="check-item"><input type="checkbox" name="body" value="力が抜けた"><span>力が抜けた</span></label>
+          <label class="check-item"><input type="checkbox" name="body" value="眠い・ぼーっとする"><span>眠い・ぼーっとする</span></label>
+          <label class="check-item"><input type="checkbox" name="body" value="あたたかい"><span>あたたかい</span></label>
+          <label class="check-item"><input type="checkbox" name="body" value="頭が静か"><span>頭が静か</span></label>
+          <label class="check-item"><input type="checkbox" name="body" value="身体の感覚を感じやすい"><span>身体の感覚を感じやすい</span></label>
+          <label class="check-item"><input type="checkbox" name="body" value="まだ張りや重さがある"><span>まだ張りや重さがある</span></label>
+          <label class="check-item"><input type="checkbox" name="body" value="感覚がよくわからない"><span>感覚がよくわからない</span></label>
+          <label class="check-item">
+            <input type="checkbox" name="body" value="その他" onchange="toggleOther(this,'bodyOtherText')">
+            <span>その他</span>
+          </label>
+          <input type="text" name="bodyOther" id="bodyOtherText" class="other-input" placeholder="自由にどうぞ">
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">03 · BREATH · 呼吸</div>
+      <div class="step-title">呼吸の感じはどうですか？</div>
+      <div class="field">
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="breath" value="深くなった"><span>深くなった</span></label>
+          <label class="radio-item"><input type="radio" name="breath" value="楽になった"><span>楽になった</span></label>
+          <label class="radio-item"><input type="radio" name="breath" value="ゆっくりになった"><span>ゆっくりになった</span></label>
+          <label class="radio-item"><input type="radio" name="breath" value="変化はよくわからない"><span>変化はよくわからない</span></label>
+          <label class="radio-item"><input type="radio" name="breath" value="浅さを感じる"><span>浅さを感じる</span></label>
+          <label class="radio-item"><input type="radio" name="breath" value="詰まりを感じる"><span>詰まりを感じる</span></label>
+          <label class="radio-item">
+            <input type="radio" name="breath" value="その他" onchange="toggleOther(this,'breathOtherText')">
+            <span>その他</span>
+          </label>
+          <input type="text" name="breathOther" id="breathOtherText" class="other-input" placeholder="自由にどうぞ">
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">04 · SENSATION · 感覚</div>
+      <div class="step-title">施術中、<br>印象に残っている感覚や場面はありますか？</div>
+      <div class="field">
+        <textarea name="sensation" placeholder="うまく言葉にできなくても大丈夫です。"></textarea>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">05 · HEART · 心</div>
+      <div class="step-title">施術後、<br>今の気持ちや心に残っていることがあれば。</div>
+      <div class="field">
+        <textarea name="heart" placeholder="感じていることをそのまま。"></textarea>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">06 · WORD · ひとこと</div>
+      <div class="step-title">今日の時間を、<br>ひとことで表すと？</div>
+      <div class="field">
+        <input type="text" name="word" placeholder="例：静かだった、やわらかかった…">
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">07 · FEEDBACK · フィードバック</div>
+      <div class="step-title">特によかったと感じたことがあれば<br>教えてください。</div>
+      <div class="field">
+        <textarea name="good" placeholder="どんな小さなことでも。"></textarea>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-title">気になったこと・違和感・<br>もっとこうだったら嬉しいことがあれば。</div>
+      <div class="field">
+        <textarea name="improve" placeholder="正直に教えていただけると嬉しいです。"></textarea>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">08 · NEXT · 次回</div>
+      <div class="step-title">次回受けるとしたら、<br>今の自分にはどんな時間が必要ですか？</div>
+      <div class="field">
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="next" value="まずは疲れを取りたい"><span>まずは疲れを取りたい</span></label>
+          <label class="radio-item"><input type="radio" name="next" value="深くゆるみたい"><span>深くゆるみたい</span></label>
+          <label class="radio-item"><input type="radio" name="next" value="静かに休みたい"><span>静かに休みたい</span></label>
+          <label class="radio-item"><input type="radio" name="next" value="自分を整理したい"><span>自分を整理したい</span></label>
+          <label class="radio-item"><input type="radio" name="next" value="感覚を取り戻したい"><span>感覚を取り戻したい</span></label>
+          <label class="radio-item"><input type="radio" name="next" value="ただゆっくり過ごしたい"><span>ただゆっくり過ごしたい</span></label>
+          <label class="radio-item"><input type="radio" name="next" value="まだわからない"><span>まだわからない</span></label>
+          <label class="radio-item">
+            <input type="radio" name="next" value="その他" onchange="toggleOther(this,'nextOtherText')">
+            <span>その他</span>
+          </label>
+          <input type="text" name="nextOther" id="nextOtherText" class="other-input" placeholder="自由にどうぞ">
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">09 · PERMISSION · 掲載について</div>
+      <div class="step-title">ご感想を、匿名で掲載させていただいても<br>よろしいですか？</div>
+      <div class="field">
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="permission" value="はい"><span>はい</span></label>
+          <label class="radio-item"><input type="radio" name="permission" value="一部ならOK"><span>一部ならOK</span></label>
+          <label class="radio-item"><input type="radio" name="permission" value="感想のみOK"><span>感想のみOK</span></label>
+          <label class="radio-item"><input type="radio" name="permission" value="NG"><span>NG</span></label>
+        </div>
+      </div>
+      <div class="field" style="margin-top:32px;">
+        <label style="margin-bottom:16px;display:block;">お写真の掲載について（任意）</label>
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="photo" value="顔が映らなければOK"><span>顔が映らなければOK</span></label>
+          <label class="radio-item"><input type="radio" name="photo" value="空間・後ろ姿ならOK"><span>空間・後ろ姿ならOK</span></label>
+          <label class="radio-item"><input type="radio" name="photo" value="感想のみOK"><span>感想のみOK</span></label>
+          <label class="radio-item"><input type="radio" name="photo" value="NG"><span>NG</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="submit-wrap">
+      <p class="submit-note">
+        ここまで読んでいただき、ありがとうございます。<br>
+        あなたの言葉が、次の時間をつくります。
+      </p>
+      <button type="submit">送信する</button>
+    </div>
+
+  </form>
+</div>
+
+<script>
+function toggleOther(el, targetId) {
+  const target = document.getElementById(targetId);
+  if (el.type === 'checkbox') {
+    target.style.display = el.checked ? 'block' : 'none';
+  } else {
+    if (el.value === 'その他' && el.checked) {
+      target.style.display = 'block';
+    }
+  }
+}
+
+document.getElementById('afterForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const fd = new FormData(this);
+  const bodyVals = fd.getAll('body').join('、');
+  const customerNo = 'A' + (fd.get('customerNo') || '');
+  const params = new URLSearchParams({
+    formType: 'after',
+    name: fd.get('name') || '',
+    customerNo: customerNo,
+    sessionDate: fd.get('sessionDate') || '',
+    body: bodyVals,
+    bodyOther: fd.get('bodyOther') || '',
+    breath: fd.get('breath') || '',
+    breathOther: fd.get('breathOther') || '',
+    sensation: fd.get('sensation') || '',
+    heart: fd.get('heart') || '',
+    word: fd.get('word') || '',
+    good: fd.get('good') || '',
+    improve: fd.get('improve') || '',
+    next: fd.get('next') || '',
+    nextOther: fd.get('nextOther') || '',
+    permission: fd.get('permission') || '',
+    photo: fd.get('photo') || '',
+    callback: 'cb'
+  });
+  const script = document.createElement('script');
+  script.src = 'https://script.google.com/macros/s/AKfycbxYwB1C7buF48ZUBAVCbeR0ohqgE_y3TvJKig-cw7xpzV-EAWoq4i8qssagoo0UVH1H/exec?' + params.toString();
+  window.cb = function() {
+    document.querySelector('.form-wrap').innerHTML = `
+      <div style="text-align:center;padding:80px 24px;">
+        <div style="font-size:52px;font-style:italic;letter-spacing:8px;color:#2e2620;margin-bottom:24px;">Amrita</div>
+        <div style="width:1px;height:40px;background:linear-gradient(to bottom,#c8b89a,transparent);margin:0 auto 32px;"></div>
+        <p style="font-size:18px;letter-spacing:3px;color:#2e2620;margin-bottom:20px;">ありがとうございました。</p>
+        <p style="font-size:14px;color:#a08870;line-height:2.2;letter-spacing:1px;">
+          今日の時間が、<br>これからの自分の中で<br>静かに続いていきますように。
+        </p>
+      </div>
+    `;
+  };
+  document.body.appendChild(script);
+});
+</script>
+</body>
+</html>
