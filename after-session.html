@@ -1,3 +1,7 @@
+2つ直します。
+	1.	エラーメッセージを日本語で表示
+	2.	2通送られる問題（scriptタグが重複している）
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -98,8 +102,20 @@ body {
 }
 .error-msg {
   color: #c0785a;
-  font-size: 12px;
-  margin-top: 6px;
+  font-size: 13px;
+  margin-top: 8px;
+  display: none;
+  letter-spacing: 1px;
+}
+.top-error {
+  background: #fff5f2;
+  border: 1px solid #c0785a;
+  color: #c0785a;
+  font-size: 14px;
+  padding: 16px 20px;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+  line-height: 2;
   display: none;
 }
 input[type="text"],
@@ -219,6 +235,11 @@ button#submitBtn:disabled {
 </div>
 
 <div class="form-wrap">
+
+  <div class="top-error" id="topError">
+    未入力の項目があります。<br>確認してから送信してください。
+  </div>
+
   <form id="afterForm" onsubmit="return false;">
 
     <div class="step">
@@ -373,6 +394,8 @@ button#submitBtn:disabled {
 </div>
 
 <script>
+var submitted = false;
+
 document.getElementById('bodyOtherChk').addEventListener('change', function() {
   document.getElementById('bodyOtherText').style.display = this.checked ? 'block' : 'none';
 });
@@ -400,6 +423,8 @@ document.querySelectorAll('input[name="next"]').forEach(function(r) {
 });
 
 function submitForm() {
+  if (submitted) return;
+
   var name = document.getElementById('name').value.trim();
   var customerNo = document.getElementById('customerNo').value.trim();
   var sessionDate = document.getElementById('sessionDate').value.trim();
@@ -408,6 +433,7 @@ function submitForm() {
   document.getElementById('nameError').style.display = 'none';
   document.getElementById('customerNoError').style.display = 'none';
   document.getElementById('sessionDateError').style.display = 'none';
+  document.getElementById('topError').style.display = 'none';
 
   if (!name) {
     document.getElementById('nameError').style.display = 'block';
@@ -421,20 +447,24 @@ function submitForm() {
     document.getElementById('sessionDateError').style.display = 'block';
     valid = false;
   }
-  if (!valid) return;
+  if (!valid) {
+    document.getElementById('topError').style.display = 'block';
+    window.scrollTo({top: 0, behavior: 'smooth'});
+    return;
+  }
 
+  submitted = true;
   var btn = document.getElementById('submitBtn');
   btn.disabled = true;
   btn.textContent = '送信中...';
 
   var fd = new FormData(document.getElementById('afterForm'));
   var bodyVals = fd.getAll('body').join('、');
-  var customerNoVal = 'A' + customerNo;
 
   var params = new URLSearchParams({
     formType: 'after',
     name: name,
-    customerNo: customerNoVal,
+    customerNo: 'A' + customerNo,
     sessionDate: sessionDate,
     body: bodyVals,
     bodyOther: fd.get('bodyOther') || '',
