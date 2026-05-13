@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
 <meta name="color-scheme" content="light only">
 <title>初回カウンセリング | Amrita</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -133,7 +133,7 @@ footer{background:#1e1810;border-top:1px solid #3a2e20;padding:1.8rem;text-align
       </div>
     </div>
     <div id="err0" class="error-msg"></div>
-    <button class="btn-next" onclick="validateStep0()">次へ</button>
+    <button type="button" class="btn-next" onclick="validateStep0()">次へ</button>
   </div>
 
   <div class="step" id="step1">
@@ -147,7 +147,7 @@ footer{background:#1e1810;border-top:1px solid #3a2e20;padding:1.8rem;text-align
       <div class="option" onclick="selectOption(this,'opts1')"><span class="option-dot"></span><span class="option-text">比較的軽い。特に気になる感じはない。</span></div>
     </div>
     <div id="err1" class="error-msg">選択してください。</div>
-    <button class="btn-next" onclick="validateRadio('opts1','err1',2)">次へ</button>
+    <button type="button" class="btn-next" onclick="validateRadio('opts1','err1',2)">次へ</button>
   </div>
 
   <div class="step" id="step2">
@@ -169,7 +169,7 @@ footer{background:#1e1810;border-top:1px solid #3a2e20;padding:1.8rem;text-align
     <div class="other-wrap" id="other2">
       <textarea placeholder="気になる場所を教えてください。" id="otherText2" style="height:80px;margin-top:0.5rem;"></textarea>
     </div>
-    <button class="btn-next" onclick="nextStep(2)" style="margin-top:2rem;">次へ</button>
+    <button type="button" class="btn-next" onclick="nextStep(2)" style="margin-top:2rem;">次へ</button>
   </div>
 
   <div class="step" id="step3">
@@ -197,7 +197,7 @@ footer{background:#1e1810;border-top:1px solid #3a2e20;padding:1.8rem;text-align
         <div class="option" onclick="selectOption(this,'opts3sense')"><span class="option-dot"></span><span class="option-text">わからない</span></div>
       </div>
     </div>
-    <button class="btn-next" onclick="nextStep(3)" style="margin-top:2rem;">次へ</button>
+    <button type="button" class="btn-next" onclick="nextStep(3)" style="margin-top:2rem;">次へ</button>
   </div>
 
   <div class="step" id="step4">
@@ -216,7 +216,7 @@ footer{background:#1e1810;border-top:1px solid #3a2e20;padding:1.8rem;text-align
       <textarea placeholder="どんな時間にしたいか教えてください。" id="otherText4" style="height:80px;"></textarea>
     </div>
     <div id="err4" class="error-msg">選択してください。</div>
-    <button class="btn-next" onclick="validateStep4()" style="margin-top:1.5rem;">次へ</button>
+    <button type="button" class="btn-next" onclick="validateStep4()" style="margin-top:1.5rem;">次へ</button>
   </div>
 
   <div class="step" id="step5">
@@ -252,7 +252,7 @@ footer{background:#1e1810;border-top:1px solid #3a2e20;padding:1.8rem;text-align
         <textarea placeholder="その他、苦手なことを教えてください。" id="otherText5" style="height:80px;margin-top:0.5rem;"></textarea>
       </div>
     </div>
-    <button class="btn-next" onclick="nextStep(5)" style="margin-top:2rem;">次へ</button>
+    <button type="button" class="btn-next" onclick="nextStep(5)" style="margin-top:2rem;">次へ</button>
   </div>
 
   <div class="step" id="step6">
@@ -275,7 +275,7 @@ footer{background:#1e1810;border-top:1px solid #3a2e20;padding:1.8rem;text-align
       </div>
       <textarea id="allergy" placeholder="内容を教えてください。" style="height:80px;margin-top:0.5rem;"></textarea>
     </div>
-    <button class="btn-next" onclick="nextStep(6)" style="margin-top:2rem;">次へ</button>
+    <button type="button" class="btn-next" onclick="nextStep(6)" style="margin-top:2rem;">次へ</button>
   </div>
 
   <div class="step" id="step7">
@@ -300,7 +300,7 @@ footer{background:#1e1810;border-top:1px solid #3a2e20;padding:1.8rem;text-align
         <span class="agree-text">オイルを使用する施術であることを確認しました</span>
       </label>
     </div>
-    <button class="btn-next" onclick="doSubmit()" id="btnSubmit" disabled>送信する</button>
+    <button type="button" class="btn-next" onclick="doSubmit()" id="btnSubmit" disabled>送信する</button>
   </div>
 </div>
 
@@ -314,6 +314,7 @@ footer{background:#1e1810;border-top:1px solid #3a2e20;padding:1.8rem;text-align
 <footer>© Amrita — 埼玉県 秩父市</footer>
 
 <script>
+var submitted = false;
 const answers = {};
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxYwB1C7buF48ZUBAVCbeR0ohqgE_y3TvJKig-cw7xpzV-EAWoq4i8qssagoo0UVH1H/exec";
 
@@ -451,6 +452,13 @@ function validateStep4() {
 }
 
 function doSubmit() {
+  if (submitted) return;
+  submitted = true;
+
+  const btn = document.getElementById('btnSubmit');
+  btn.disabled = true;
+  btn.textContent = '送信中...';
+
   const hope4 = answers['opts4'] || '';
   const other4 = document.getElementById('otherText4').value.trim();
   const hopeVal = (hope4 === 'その他' && other4) ? 'その他：' + other4 : hope4;
@@ -477,19 +485,15 @@ function doSubmit() {
     callback: 'cb'
   });
 
-  const script = document.createElement('script');
-  script.src = SCRIPT_URL + '?' + params.toString();
-  window.cb = function () {
+  window.cb = function() {
     document.querySelector('.form-wrap').style.display = 'none';
     document.getElementById('thankyou').classList.add('show');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const script = document.createElement('script');
+  script.src = SCRIPT_URL + '?' + params.toString();
   document.body.appendChild(script);
-  setTimeout(function () {
-    document.querySelector('.form-wrap').style.display = 'none';
-    document.getElementById('thankyou').classList.add('show');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, 3000);
 }
 </script>
 </body>
