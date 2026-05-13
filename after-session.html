@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
 <title>施術後の記録 | Amrita</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -83,7 +83,7 @@ body {
 .field {
   margin-bottom: 32px;
 }
-.field label {
+.field > label {
   display: block;
   font-size: 14px;
   color: #5e4e40;
@@ -95,7 +95,6 @@ body {
   color: #c0785a;
   font-size: 11px;
   margin-left: 6px;
-  letter-spacing: 0;
 }
 input[type="text"],
 input[type="date"],
@@ -110,6 +109,8 @@ textarea {
   color: #2e2620;
   outline: none;
   letter-spacing: 1px;
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 input[type="text"]:focus,
 input[type="date"]:focus,
@@ -124,20 +125,23 @@ textarea {
 .radio-group, .check-group {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 .radio-item, .check-item {
   display: flex;
   align-items: flex-start;
   gap: 12px;
   cursor: pointer;
+  padding: 4px 0;
 }
-.radio-item input, .check-item input {
-  width: auto;
-  border: none;
-  margin-top: 3px;
+.radio-item input[type="radio"],
+.check-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
   flex-shrink: 0;
   accent-color: #a08870;
+  cursor: pointer;
 }
 .radio-item span, .check-item span {
   font-size: 15px;
@@ -145,9 +149,10 @@ textarea {
   letter-spacing: 1px;
   line-height: 1.7;
 }
-.other-input {
-  margin-top: 8px;
-  width: 100%;
+.other-text {
+  margin-top: 10px;
+  margin-left: 32px;
+  width: calc(100% - 32px);
   background: transparent;
   border: none;
   border-bottom: 1px solid rgba(180,160,130,0.4);
@@ -157,6 +162,8 @@ textarea {
   color: #2e2620;
   outline: none;
   display: none;
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 .submit-wrap {
   text-align: center;
@@ -169,7 +176,7 @@ textarea {
   line-height: 2;
   letter-spacing: 1px;
 }
-button[type="submit"] {
+button#submitBtn {
   background: transparent;
   border: 1px solid #a08870;
   color: #5e4e40;
@@ -179,12 +186,10 @@ button[type="submit"] {
   padding: 16px 56px;
   cursor: pointer;
   transition: all 0.3s;
+  -webkit-appearance: none;
+  border-radius: 0;
 }
-button[type="submit"]:hover {
-  background: #a08870;
-  color: #faf9f7;
-}
-button[type="submit"]:disabled {
+button#submitBtn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
@@ -208,7 +213,7 @@ button[type="submit"]:disabled {
 </div>
 
 <div class="form-wrap">
-  <form id="afterForm">
+  <form id="afterForm" onsubmit="return false;">
 
     <div class="step">
       <div class="step-label">01 · PROFILE · 基本情報</div>
@@ -221,7 +226,7 @@ button[type="submit"]:disabled {
         <label>顧客番号<span class="required">※必須</span></label>
         <div style="display:flex;align-items:center;gap:4px;">
           <span style="font-size:15px;color:#2e2620;">A</span>
-          <input type="text" name="customerNo" id="customerNo" required placeholder="001" style="flex:1;" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+          <input type="text" name="customerNo" required placeholder="001" style="flex:1;" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
         </div>
       </div>
       <div class="field">
@@ -234,7 +239,7 @@ button[type="submit"]:disabled {
       <div class="step-label">02 · BODY · 身体の感覚</div>
       <div class="step-title">今の身体の感じに<br>近いものを選んでください。</div>
       <div class="field">
-        <label style="margin-bottom:16px;display:block;font-size:13px;color:#a08870;">複数選択できます</label>
+        <label style="font-size:13px;color:#a08870;">複数選択できます</label>
         <div class="check-group">
           <label class="check-item"><input type="checkbox" name="body" value="身体が軽い"><span>身体が軽い</span></label>
           <label class="check-item"><input type="checkbox" name="body" value="呼吸がしやすい"><span>呼吸がしやすい</span></label>
@@ -245,8 +250,8 @@ button[type="submit"]:disabled {
           <label class="check-item"><input type="checkbox" name="body" value="身体の感覚を感じやすい"><span>身体の感覚を感じやすい</span></label>
           <label class="check-item"><input type="checkbox" name="body" value="まだ張りや重さがある"><span>まだ張りや重さがある</span></label>
           <label class="check-item"><input type="checkbox" name="body" value="感覚がよくわからない"><span>感覚がよくわからない</span></label>
-          <label class="check-item"><input type="checkbox" name="body" value="その他" id="bodyOtherCheck"><span>その他</span></label>
-          <input type="text" name="bodyOther" id="bodyOtherText" class="other-input" placeholder="自由にどうぞ">
+          <label class="check-item"><input type="checkbox" name="body" value="その他" id="bodyOtherChk"><span>その他</span></label>
+          <input type="text" name="bodyOther" id="bodyOtherText" class="other-text" placeholder="自由にどうぞ">
         </div>
       </div>
     </div>
@@ -262,8 +267,8 @@ button[type="submit"]:disabled {
           <label class="radio-item"><input type="radio" name="breath" value="変化はよくわからない"><span>変化はよくわからない</span></label>
           <label class="radio-item"><input type="radio" name="breath" value="浅さを感じる"><span>浅さを感じる</span></label>
           <label class="radio-item"><input type="radio" name="breath" value="詰まりを感じる"><span>詰まりを感じる</span></label>
-          <label class="radio-item"><input type="radio" name="breath" value="その他" id="breathOtherRadio"><span>その他</span></label>
-          <input type="text" name="breathOther" id="breathOtherText" class="other-input" placeholder="自由にどうぞ">
+          <label class="radio-item"><input type="radio" name="breath" value="その他" id="breathOtherRad"><span>その他</span></label>
+          <input type="text" name="breathOther" id="breathOtherText" class="other-text" placeholder="自由にどうぞ">
         </div>
       </div>
     </div>
@@ -319,8 +324,8 @@ button[type="submit"]:disabled {
           <label class="radio-item"><input type="radio" name="next" value="感覚を取り戻したい"><span>感覚を取り戻したい</span></label>
           <label class="radio-item"><input type="radio" name="next" value="ただゆっくり過ごしたい"><span>ただゆっくり過ごしたい</span></label>
           <label class="radio-item"><input type="radio" name="next" value="まだわからない"><span>まだわからない</span></label>
-          <label class="radio-item"><input type="radio" name="next" value="その他" id="nextOtherRadio"><span>その他</span></label>
-          <input type="text" name="nextOther" id="nextOtherText" class="other-input" placeholder="自由にどうぞ">
+          <label class="radio-item"><input type="radio" name="next" value="その他" id="nextOtherRad"><span>その他</span></label>
+          <input type="text" name="nextOther" id="nextOtherText" class="other-text" placeholder="自由にどうぞ">
         </div>
       </div>
     </div>
@@ -352,41 +357,45 @@ button[type="submit"]:disabled {
         ここまで読んでいただき、ありがとうございます。<br>
         あなたの言葉が、次の時間をつくります。
       </p>
-      <button type="submit" id="submitBtn">送信する</button>
+      <button type="button" id="submitBtn" onclick="submitForm()">送信する</button>
     </div>
 
   </form>
 </div>
 
 <script>
-// その他の表示制御をイベント委任で処理（画面ジャンプを防ぐ）
-document.getElementById('afterForm').addEventListener('change', function(e) {
-  const el = e.target;
+document.getElementById('bodyOtherChk').addEventListener('change', function() {
+  document.getElementById('bodyOtherText').style.display = this.checked ? 'block' : 'none';
+});
 
-  if (el.id === 'bodyOtherCheck') {
-    document.getElementById('bodyOtherText').style.display = el.checked ? 'block' : 'none';
-  }
-  if (el.id === 'breathOtherRadio') {
-    document.getElementById('breathOtherText').style.display = el.checked ? 'block' : 'none';
-  }
-  if (el.name === 'breath' && el.id !== 'breathOtherRadio') {
-    document.getElementById('breathOtherText').style.display = 'none';
-  }
-  if (el.id === 'nextOtherRadio') {
-    document.getElementById('nextOtherText').style.display = el.checked ? 'block' : 'none';
-  }
-  if (el.name === 'next' && el.id !== 'nextOtherRadio') {
-    document.getElementById('nextOtherText').style.display = 'none';
+document.getElementById('breathOtherRad').addEventListener('change', function() {
+  document.getElementById('breathOtherText').style.display = 'block';
+});
+document.querySelectorAll('input[name="breath"]').forEach(function(r) {
+  if (r.id !== 'breathOtherRad') {
+    r.addEventListener('change', function() {
+      document.getElementById('breathOtherText').style.display = 'none';
+    });
   }
 });
 
-document.getElementById('afterForm').addEventListener('submit', function(e) {
-  e.preventDefault();
+document.getElementById('nextOtherRad').addEventListener('change', function() {
+  document.getElementById('nextOtherText').style.display = 'block';
+});
+document.querySelectorAll('input[name="next"]').forEach(function(r) {
+  if (r.id !== 'nextOtherRad') {
+    r.addEventListener('change', function() {
+      document.getElementById('nextOtherText').style.display = 'none';
+    });
+  }
+});
+
+function submitForm() {
   const btn = document.getElementById('submitBtn');
   btn.disabled = true;
   btn.textContent = '送信中...';
 
-  const fd = new FormData(this);
+  const fd = new FormData(document.getElementById('afterForm'));
   const bodyVals = fd.getAll('body').join('、');
   const customerNo = 'A' + (fd.get('customerNo') || '');
 
@@ -426,10 +435,7 @@ document.getElementById('afterForm').addEventListener('submit', function(e) {
     `;
   };
   document.body.appendChild(script);
-});
+}
 </script>
 </body>
 </html>
-
-
-counseling.htmlも同じ修正が必要です。そちらのソースを貼ってもらえれば直します。​​​​​​​​​​​​​​​​
