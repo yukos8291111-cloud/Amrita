@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
+<title>体調確認 | Amrita</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #faf9f7;
+  color: #2e2620;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.8;
+}
+.hero {
+  text-align: center;
+  padding: 72px 32px 48px;
+  border-bottom: 1px solid rgba(180,160,130,0.2);
+}
+.logo {
+  font-size: 52px;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 8px;
+  color: #2e2620;
+  margin-bottom: 16px;
+}
+.hero-sub {
+  font-size: 11px;
+  letter-spacing: 8px;
+  color: #a08870;
+  margin-bottom: 32px;
+}
+.v-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, #c8b89a, transparent);
+  margin: 0 auto 32px;
+}
+.section-label {
+  font-size: 11px;
+  letter-spacing: 8px;
+  color: #a08870;
+  margin-bottom: 12px;
+}
+.hero-title {
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 6px;
+  color: #2e2620;
+  margin-bottom: 24px;
+}
+.hero-desc {
+  font-size: 15px;
+  color: #6e5e50;
+  line-height: 2.2;
+  letter-spacing: 1px;
+}
+.form-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+.step {
+  padding: 48px 0;
+  border-bottom: 1px solid rgba(180,160,130,0.15);
+}
+.step-label {
+  font-size: 10px;
+  letter-spacing: 8px;
+  color: #a08870;
+  margin-bottom: 8px;
+}
+.step-title {
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  color: #2e2620;
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+.field {
+  margin-bottom: 32px;
+}
+.field > label {
+  display: block;
+  font-size: 14px;
+  color: #5e4e40;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  line-height: 1.8;
+}
+.required {
+  color: #c0785a;
+  font-size: 11px;
+  margin-left: 6px;
+}
+.error-msg {
+  color: #c0785a;
+  font-size: 13px;
+  margin-top: 8px;
+  display: none;
+  letter-spacing: 1px;
+}
+.top-error {
+  background: #fff5f2;
+  border: 1px solid #c0785a;
+  color: #c0785a;
+  font-size: 14px;
+  padding: 16px 20px;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+  line-height: 2;
+  display: none;
+}
+input[type="text"],
+input[type="date"],
+textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(180,160,130,0.5);
+  padding: 10px 0;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+  font-size: 15px;
+  color: #2e2620;
+  outline: none;
+  letter-spacing: 1px;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+input[type="text"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+  border-bottom-color: #a08870;
+}
+textarea {
+  resize: none;
+  min-height: 100px;
+  line-height: 1.8;
+}
+.submit-wrap {
+  text-align: center;
+  padding-top: 56px;
+}
+.submit-note {
+  font-size: 13px;
+  color: #a08870;
+  margin-bottom: 32px;
+  line-height: 2;
+  letter-spacing: 1px;
+}
+button#submitBtn {
+  background: transparent;
+  border: 1px solid #a08870;
+  color: #5e4e40;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+  font-size: 15px;
+  letter-spacing: 4px;
+  padding: 16px 56px;
+  cursor: pointer;
+  transition: all 0.3s;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+button#submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="logo">Amrita</div>
+  <div class="hero-sub">ESALEN MASSAGE</div>
+  <div class="v-line"></div>
+  <div class="section-label">BODY CHECK</div>
+  <div class="hero-title">体調確認</div>
+  <div class="hero-desc">
+    今日の身体の状態を<br>
+    少しだけ教えてください。
+  </div>
+</div>
+
+<div class="form-wrap">
+
+  <div class="top-error" id="topError">
+    未入力の項目があります。<br>確認してから送信してください。
+  </div>
+
+  <form id="bodyCheckForm" onsubmit="return false;">
+
+    <div class="step">
+      <div class="step-label">01 · PROFILE · 基本情報</div>
+      <div class="step-title">はじめに確認させてください。</div>
+      <div class="field">
+        <label>お名前<span class="required">※必須</span></label>
+        <input type="text" id="name" placeholder="例：山田 花子">
+        <div class="error-msg" id="nameError">お名前を入力してください。</div>
+      </div>
+      <div class="field">
+        <label>顧客番号<span class="required">※必須</span></label>
+        <div style="display:flex;align-items:center;gap:4px;">
+          <span style="font-size:15px;color:#2e2620;">A</span>
+          <input type="text" id="customerNo" placeholder="001" style="flex:1;" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+        </div>
+        <div class="error-msg" id="customerNoError">顧客番号を入力してください。</div>
+      </div>
+      <div class="field">
+        <label>来店日<span class="required">※必須</span></label>
+        <input type="date" id="visitDate">
+        <div class="error-msg" id="visitDateError">来店日を選択してください。</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">02 · CONCERN · 気になるところ</div>
+      <div class="step-title">今日特に気になるところを<br>教えてください。</div>
+      <div class="field">
+        <textarea id="concern" placeholder="身体の部位、感覚、気になっていることなど。"></textarea>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">03 · MESSAGE · 伝えておきたいこと</div>
+      <div class="step-title">今日伝えておきたいことが<br>あれば教えてください。</div>
+      <div class="field">
+        <textarea id="message" placeholder="どんな小さなことでも。"></textarea>
+      </div>
+    </div>
+
+    <div class="submit-wrap">
+      <p class="submit-note">
+        ありがとうございます。<br>
+        今日もどうぞよろしくお願いします。
+      </p>
+      <button type="button" id="submitBtn" onclick="submitForm()">送信する</button>
+    </div>
+
+  </form>
+</div>
+
+<script>
+var submitted = false;
+
+function submitForm() {
+  if (submitted) return;
+
+  var name = document.getElementById('name').value.trim();
+  var customerNo = document.getElementById('customerNo').value.trim();
+  var visitDate = document.getElementById('visitDate').value.trim();
+  var valid = true;
+
+  document.getElementById('nameError').style.display = 'none';
+  document.getElementById('customerNoError').style.display = 'none';
+  document.getElementById('visitDateError').style.display = 'none';
+  document.getElementById('topError').style.display = 'none';
+
+  if (!name) {
+    document.getElementById('nameError').style.display = 'block';
+    valid = false;
+  }
+  if (!customerNo) {
+    document.getElementById('customerNoError').style.display = 'block';
+    valid = false;
+  }
+  if (!visitDate) {
+    document.getElementById('visitDateError').style.display = 'block';
+    valid = false;
+  }
+  if (!valid) {
+    document.getElementById('topError').style.display = 'block';
+    window.scrollTo({top: 0, behavior: 'smooth'});
+    return;
+  }
+
+  submitted = true;
+  var btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = '送信中...';
+
+  var concern = document.getElementById('concern').value.trim();
+  var message = document.getElementById('message').value.trim();
+
+  var params = new URLSearchParams({
+    formType: 'bodycheck',
+    name: name,
+    customerNo: 'A' + customerNo,
+    visitDate: visitDate,
+    concern: concern,
+    message: message,
+    callback: 'cb'
+  });
+
+  var script = document.createElement('script');
+  script.src = 'https://script.google.com/macros/s/AKfycbxYwB1C7buF48ZUBAVCbeR0ohqgE_y3TvJKig-cw7xpzV-EAWoq4i8qssagoo0UVH1H/exec?' + params.toString();
+  window.cb = function() {
+    document.querySelector('.form-wrap').innerHTML = '<div style="text-align:center;padding:80px 24px;"><div style="font-size:52px;font-style:italic;letter-spacing:8px;color:#2e2620;margin-bottom:24px;">Amrita</div><div style="width:1px;height:40px;background:linear-gradient(to bottom,#c8b89a,transparent);margin:0 auto 32px;"></div><p style="font-size:18px;letter-spacing:3px;color:#2e2620;margin-bottom:20px;">ありがとうございます。</p><p style="font-size:14px;color:#a08870;line-height:2.2;letter-spacing:1px;">今日もどうぞよろしくお願いします。</p></div>';
+  };
+  document.body.appendChild(script);
+}
+</script>
+</body>
+</html>
