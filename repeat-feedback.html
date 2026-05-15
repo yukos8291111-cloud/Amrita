@@ -1,0 +1,498 @@
+では repeat-feedback.html ですfunction doGet(e) {
+  const params = e.parameter;
+  const ss = SpreadsheetApp.openById('1YgafWqN-Ut07e7FT6_JxN6sWFcK-QKy9IC8ChpjC_RA');
+
+  if (params.formType === 'after') {
+    const sheet = ss.getSheetByName('お客様からのフィードバック');
+    sheet.appendRow([
+      new Date(),
+      params.customerNo || '',
+      params.name || '',
+      params.sessionDate || '',
+      params.body || '',
+      params.bodyOther || '',
+      params.breath || '',
+      params.breathOther || '',
+      params.sensation || '',
+      params.heart || '',
+      params.word || '',
+      params.good || '',
+      params.improve || '',
+      params.next || '',
+      params.nextOther || '',
+      params.permission || '',
+      params.photo || ''
+    ]);
+    MailApp.sendEmail({
+      to: 'yuko.s829.1111@gmail.com',
+      subject: '【Amrita】施術後の記録が届きました',
+      body:
+        '名前：' + (params.name || '') + '\n' +
+        '顧客番号：' + (params.customerNo || '') + '\n' +
+        '施術日：' + (params.sessionDate || '') + '\n' +
+        '身体の感じ：' + (params.body || '') + '\n' +
+        '呼吸：' + (params.breath || '') + '\n' +
+        '施術中の感覚：' + (params.sensation || '') + '\n' +
+        '心に残ったこと：' + (params.heart || '') + '\n' +
+        'ひとこと：' + (params.word || '') + '\n' +
+        'よかったこと：' + (params.good || '') + '\n' +
+        '改善点：' + (params.improve || '') + '\n' +
+        '次回の希望：' + (params.next || '') + '\n' +
+        '掲載許可：' + (params.permission || '') + '\n' +
+        '写真掲載：' + (params.photo || '')
+    });
+
+  } else if (params.formType === 'selfcheck') {
+    const sheet = ss.getSheetByName('自分を知る');
+    sheet.appendRow([
+      new Date(),
+      params.name || '',
+      params.email || '',
+      params.line || '',
+      params.q0 || '',
+      params.q1 || '',
+      params.q2 || '',
+      params.q3 || '',
+      params.q4 || '',
+      params.free || ''
+    ]);
+    MailApp.sendEmail({
+      to: 'yuko.s829.1111@gmail.com',
+      subject: '【Amrita】自分を知るの回答が届きました',
+      body:
+        '名前：' + (params.name || '') + '\n' +
+        'メール：' + (params.email || '') + '\n' +
+        'LINE：' + (params.line || '') + '\n' +
+        '身体：' + (params.q0 || '') + '\n' +
+        '呼吸：' + (params.q1 || '') + '\n' +
+        '思考：' + (params.q2 || '') + '\n' +
+        '感情：' + (params.q3 || '') + '\n' +
+        'エネルギー：' + (params.q4 || '') + '\n' +
+        '自由記述：' + (params.free || '')
+    });
+
+  } else if (params.formType === 'bodycheck') {
+    const sheet = ss.getSheetByName('体調確認');
+    sheet.appendRow([
+      new Date(),
+      params.customerNo || '',
+      params.name || '',
+      params.visitDate || '',
+      params.concern || '',
+      params.message || ''
+    ]);
+    MailApp.sendEmail({
+      to: 'yuko.s829.1111@gmail.com',
+      subject: '【Amrita】体調確認が届きました',
+      body:
+        '名前：' + (params.name || '') + '\n' +
+        '顧客番号：' + (params.customerNo || '') + '\n' +
+        '来店日：' + (params.visitDate || '') + '\n' +
+        '気になるところ：' + (params.concern || '') + '\n' +
+        '伝えておきたいこと：' + (params.message || '')
+    });
+
+  } else if (params.formType === 'repeatfeedback') {
+    const sheet = ss.getSheetByName('施術後フィードバック');
+    sheet.appendRow([
+      new Date(),
+      params.customerNo || '',
+      params.name || '',
+      params.sessionDate || '',
+      params.q1 || '',
+      params.q2 || '',
+      params.q3 || '',
+      '', '', '', ''
+    ]);
+    MailApp.sendEmail({
+      to: 'yuko.s829.1111@gmail.com',
+      subject: '【Amrita】施術後フィードバックが届きました',
+      body:
+        '名前：' + (params.name || '') + '\n' +
+        '顧客番号：' + (params.customerNo || '') + '\n' +
+        '施術日：' + (params.sessionDate || '') + '\n' +
+        'Q1 身体の変化：' + (params.q1 || '') + '\n' +
+        'Q2 残存違和感：' + (params.q2 || '') + '\n' +
+        'Q3 体感・反応：' + (params.q3 || '')
+    });
+
+  } else {
+    const sheet = ss.getSheetByName('初回カウンセリング');
+    sheet.appendRow([
+      new Date(),
+      params.customerNo || '',
+      params.name || '',
+      params.email || '',
+      params.lineName || '',
+      params.reserveDate || '',
+      params.menu || '',
+      params.body || '',
+      params.concern || '',
+      params.feeling || '',
+      params.senseTime || '',
+      params.hope || '',
+      params.pressure || '',
+      params.noTouch || '',
+      params.noAction || '',
+      params.health || '',
+      params.allergy || '',
+      params.message || '',
+      params.agree || ''
+    ]);
+    MailApp.sendEmail({
+      to: 'yuko.s829.1111@gmail.com',
+      subject: '【Amrita】初回カウンセリング回答がありました',
+      body:
+        '名前：' + (params.name || '') + '\n' +
+        '顧客番号：' + (params.customerNo || '') + '\n' +
+        'メール：' + (params.email || '') + '\n' +
+        'LINE登録名：' + (params.lineName || '') + '\n' +
+        '予約日：' + (params.reserveDate || '') + '\n' +
+        'メニュー：' + (params.menu || '') + '\n' +
+        '身体の状態：' + (params.body || '') + '\n' +
+        '気になる場所：' + (params.concern || '') + '\n' +
+        '気持ち：' + (params.feeling || '') + '\n' +
+        '身体感覚の時間：' + (params.senseTime || '') + '\n' +
+        '今日の希望：' + (params.hope || '') + '\n' +
+        '圧の好み：' + (params.pressure || '') + '\n' +
+        '触れてほしくない場所：' + (params.noTouch || '') + '\n' +
+        '苦手なこと：' + (params.noAction || '') + '\n' +
+        '健康状態：' + (params.health || '') + '\n' +
+        'アレルギー：' + (params.allergy || '') + '\n' +
+        '伝えたいこと：' + (params.message || '') + '\n' +
+        '同意：' + (params.agree || '')
+    });
+  }
+
+  return ContentService.createTextOutput(params.callback + '()')
+    .setMimeType(ContentService.MimeType.JAVASCRIPT);
+}
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
+<title>施術後フィードバック | Amrita</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #faf9f7;
+  color: #2e2620;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.8;
+}
+.hero {
+  text-align: center;
+  padding: 72px 32px 48px;
+  border-bottom: 1px solid rgba(180,160,130,0.2);
+}
+.logo {
+  font-size: 52px;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 8px;
+  color: #2e2620;
+  margin-bottom: 16px;
+}
+.hero-sub {
+  font-size: 11px;
+  letter-spacing: 8px;
+  color: #a08870;
+  margin-bottom: 32px;
+}
+.v-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, #c8b89a, transparent);
+  margin: 0 auto 32px;
+}
+.section-label {
+  font-size: 11px;
+  letter-spacing: 8px;
+  color: #a08870;
+  margin-bottom: 12px;
+}
+.hero-title {
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 6px;
+  color: #2e2620;
+  margin-bottom: 24px;
+}
+.hero-desc {
+  font-size: 15px;
+  color: #6e5e50;
+  line-height: 2.2;
+  letter-spacing: 1px;
+}
+.form-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+.step {
+  padding: 48px 0;
+  border-bottom: 1px solid rgba(180,160,130,0.15);
+}
+.step-label {
+  font-size: 10px;
+  letter-spacing: 8px;
+  color: #a08870;
+  margin-bottom: 8px;
+}
+.step-title {
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: #2e2620;
+  margin-bottom: 12px;
+  line-height: 1.9;
+}
+.step-hint {
+  font-size: 13px;
+  color: #a08870;
+  margin-bottom: 24px;
+  line-height: 2;
+  letter-spacing: 1px;
+}
+.field {
+  margin-bottom: 32px;
+}
+.field > label {
+  display: block;
+  font-size: 14px;
+  color: #5e4e40;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  line-height: 1.8;
+}
+.required {
+  color: #c0785a;
+  font-size: 11px;
+  margin-left: 6px;
+}
+.error-msg {
+  color: #c0785a;
+  font-size: 13px;
+  margin-top: 8px;
+  display: none;
+  letter-spacing: 1px;
+}
+.top-error {
+  background: #fff5f2;
+  border: 1px solid #c0785a;
+  color: #c0785a;
+  font-size: 14px;
+  padding: 16px 20px;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+  line-height: 2;
+  display: none;
+}
+input[type="text"],
+input[type="date"],
+textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(180,160,130,0.5);
+  padding: 10px 0;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+  font-size: 15px;
+  color: #2e2620;
+  outline: none;
+  letter-spacing: 1px;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+input[type="text"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+  border-bottom-color: #a08870;
+}
+textarea {
+  resize: none;
+  min-height: 80px;
+  line-height: 1.8;
+}
+.submit-wrap {
+  text-align: center;
+  padding-top: 56px;
+}
+.submit-note {
+  font-size: 13px;
+  color: #a08870;
+  margin-bottom: 32px;
+  line-height: 2;
+  letter-spacing: 1px;
+}
+button#submitBtn {
+  background: transparent;
+  border: 1px solid #a08870;
+  color: #5e4e40;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+  font-size: 15px;
+  letter-spacing: 4px;
+  padding: 16px 56px;
+  cursor: pointer;
+  transition: all 0.3s;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+button#submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="logo">Amrita</div>
+  <div class="hero-sub">ESALEN MASSAGE</div>
+  <div class="v-line"></div>
+  <div class="section-label">FEEDBACK</div>
+  <div class="hero-title">施術後フィードバック</div>
+  <div class="hero-desc">
+    3つだけ教えてください。<br>
+    あなたの言葉が、次の施術をつくります。
+  </div>
+</div>
+
+<div class="form-wrap">
+
+  <div class="top-error" id="topError">
+    未入力の項目があります。<br>確認してから送信してください。
+  </div>
+
+  <form id="feedbackForm" onsubmit="return false;">
+
+    <div class="step">
+      <div class="step-label">PROFILE · 基本情報</div>
+      <div class="field">
+        <label>お名前<span class="required">※必須</span></label>
+        <input type="text" id="name" placeholder="例：山田 花子">
+        <div class="error-msg" id="nameError">お名前を入力してください。</div>
+      </div>
+      <div class="field">
+        <label>顧客番号<span class="required">※必須</span></label>
+        <div style="display:flex;align-items:center;gap:4px;">
+          <span style="font-size:15px;color:#2e2620;">A</span>
+          <input type="text" id="customerNo" placeholder="001" style="flex:1;" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+        </div>
+        <div class="error-msg" id="customerNoError">顧客番号を入力してください。</div>
+      </div>
+      <div class="field">
+        <label>本日の施術日<span class="required">※必須</span></label>
+        <input type="date" id="sessionDate">
+        <div class="error-msg" id="sessionDateError">施術日を選択してください。</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">Q1 · 身体の変化</div>
+      <div class="step-title">施術を受けて、<br>お身体にどんな変化がありましたか？</div>
+      <div class="step-hint">例：軽くなった／変わらない／だるさが残る／スッキリした／一部だけ楽になった</div>
+      <div class="field">
+        <textarea id="q1" placeholder="感じたままを、言葉にしてください。"></textarea>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">Q2 · 残存違和感</div>
+      <div class="step-title">まだ気になるところや<br>違和感はありますか？</div>
+      <div class="step-hint">例：首・肩・腰・頭・疲労感・重さ・痛みなど／場所だけでも可</div>
+      <div class="field">
+        <textarea id="q2" placeholder="なければ「特になし」と書いてください。"></textarea>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">Q3 · 体感・反応</div>
+      <div class="step-title">施術中や施術後の体感で<br>印象に残ったことはありますか？</div>
+      <div class="step-hint">例：眠くなった／呼吸が深くなった／圧の感覚が強かった／特に何もなかった</div>
+      <div class="field">
+        <textarea id="q3" placeholder="どんな小さなことでも。"></textarea>
+      </div>
+    </div>
+
+    <div class="submit-wrap">
+      <p class="submit-note">
+        ありがとうございます。<br>
+        あなたの言葉が、次の時間をつくります。
+      </p>
+      <button type="button" id="submitBtn" onclick="submitForm()">送信する</button>
+    </div>
+
+  </form>
+</div>
+
+<script>
+var submitted = false;
+
+function submitForm() {
+  if (submitted) return;
+
+  var name = document.getElementById('name').value.trim();
+  var customerNo = document.getElementById('customerNo').value.trim();
+  var sessionDate = document.getElementById('sessionDate').value.trim();
+  var valid = true;
+
+  document.getElementById('nameError').style.display = 'none';
+  document.getElementById('customerNoError').style.display = 'none';
+  document.getElementById('sessionDateError').style.display = 'none';
+  document.getElementById('topError').style.display = 'none';
+
+  if (!name) {
+    document.getElementById('nameError').style.display = 'block';
+    valid = false;
+  }
+  if (!customerNo) {
+    document.getElementById('customerNoError').style.display = 'block';
+    valid = false;
+  }
+  if (!sessionDate) {
+    document.getElementById('sessionDateError').style.display = 'block';
+    valid = false;
+  }
+  if (!valid) {
+    document.getElementById('topError').style.display = 'block';
+    window.scrollTo({top: 0, behavior: 'smooth'});
+    return;
+  }
+
+  submitted = true;
+  var btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = '送信中...';
+
+  var q1 = document.getElementById('q1').value.trim();
+  var q2 = document.getElementById('q2').value.trim();
+  var q3 = document.getElementById('q3').value.trim();
+
+  var params = new URLSearchParams({
+    formType: 'repeatfeedback',
+    name: name,
+    customerNo: 'A' + customerNo,
+    sessionDate: sessionDate,
+    q1: q1,
+    q2: q2,
+    q3: q3,
+    callback: 'cb'
+  });
+
+  var script = document.createElement('script');
+  script.src = 'https://script.google.com/macros/s/AKfycbxYwB1C7buF48ZUBAVCbeR0ohqgE_y3TvJKig-cw7xpzV-EAWoq4i8qssagoo0UVH1H/exec?' + params.toString();
+  window.cb = function() {
+    document.querySelector('.form-wrap').innerHTML = '<div style="text-align:center;padding:80px 24px;"><div style="font-size:52px;font-style:italic;letter-spacing:8px;color:#2e2620;margin-bottom:24px;">Amrita</div><div style="width:1px;height:40px;background:linear-gradient(to bottom,#c8b89a,transparent);margin:0 auto 32px;"></div><p style="font-size:18px;letter-spacing:3px;color:#2e2620;margin-bottom:20px;">ありがとうございました。</p><p style="font-size:14px;color:#a08870;line-height:2.2;letter-spacing:1px;">あなたの言葉が、<br>次の時間をつくります。</p></div>';
+  };
+  document.body.appendChild(script);
+}
+</script>
+</body>
+</html>
+
+
