@@ -184,7 +184,7 @@ footer{background:#1e1810;border-top:1px solid #3a2e20;padding:1.8rem;text-align
 <script>
 var submitted = false;
 const answers = {};
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyH0f3w1I52ajPHxvT0s1gYr4TqVS8WsViSVp6K6Exr5Wgcbo4U8jWG6Lks0gcaCpEb/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxYwB1C7buF48ZUBAVCbeR0ohqgE_y3TvJKig-cw7xpzV-EAWoq4i8qssagoo0UVH1H/exec";
 
 document.querySelectorAll('.options').forEach((opts, stepIdx) => {
   opts.querySelectorAll('.option').forEach(opt => {
@@ -234,6 +234,7 @@ function doSubmit() {
   btn.textContent = '送信中...';
 
   const params = new URLSearchParams({
+    formType: 'selfcheck',
     name: name,
     email: email,
     line: line,
