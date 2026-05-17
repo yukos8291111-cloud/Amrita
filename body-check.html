@@ -140,6 +140,115 @@ textarea {
   min-height: 100px;
   line-height: 1.8;
 }
+.health-item {
+  margin-bottom: 36px;
+}
+.health-question {
+  font-size: 14px;
+  color: #5e4e40;
+  letter-spacing: 1px;
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+.radio-group {
+  display: flex;
+  border-bottom: 1px solid rgba(180,160,130,0.5);
+}
+.radio-option {
+  flex: 1;
+  position: relative;
+}
+.radio-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.radio-btn {
+  display: block;
+  text-align: center;
+  padding: 11px 4px;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #a08870;
+  cursor: pointer;
+  transition: all 0.25s;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+.radio-option input[type="radio"]:checked + .radio-btn {
+  color: #2e2620;
+  border-bottom-color: #a08870;
+}
+.pain-area {
+  display: none;
+  margin-top: 20px;
+}
+.pain-area.visible {
+  display: block;
+}
+.pain-area-note {
+  font-size: 13px;
+  color: #a08870;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.confirm-text {
+  font-size: 14px;
+  color: #6e5e50;
+  line-height: 2.2;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+.checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  cursor: pointer;
+  padding: 18px 0;
+  border-top: 1px solid rgba(180,160,130,0.2);
+  border-bottom: 1px solid rgba(180,160,130,0.2);
+}
+.checkbox-custom {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border: 1px solid rgba(160,136,112,0.6);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+  transition: all 0.2s;
+}
+.checkbox-custom.checked {
+  background: #2e2620;
+  border-color: #2e2620;
+}
+.checkbox-custom.checked::after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 9px;
+  border: 1.5px solid #faf9f7;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg) translateY(-1px);
+}
+.checkbox-text {
+  font-size: 14px;
+  color: #2e2620;
+  letter-spacing: 1px;
+  line-height: 1.9;
+}
+.checkbox-text small {
+  display: block;
+  font-size: 12px;
+  color: #a08870;
+  margin-top: 4px;
+  letter-spacing: 1px;
+}
 .submit-wrap {
   text-align: center;
   padding-top: 56px;
@@ -187,7 +296,7 @@ button#submitBtn:disabled {
 <div class="form-wrap">
 
   <div class="top-error" id="topError">
-    未入力の項目があります。<br>確認してから送信してください。
+    未入力または未選択の項目があります。<br>確認してから送信してください。
   </div>
 
   <form id="bodyCheckForm" onsubmit="return false;">
@@ -216,7 +325,74 @@ button#submitBtn:disabled {
     </div>
 
     <div class="step">
-      <div class="step-label">02 · CONCERN · 気になるところ</div>
+      <div class="step-label">02 · HEALTH · 体調チェック</div>
+      <div class="step-title">今日の体調を<br>確認させてください。</div>
+
+      <div class="health-item">
+        <div class="health-question">発熱や熱っぽい感じはありませんか。<span class="required">※必須</span></div>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="fever" value="none">
+            <span class="radio-btn">ない</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="fever" value="slight">
+            <span class="radio-btn">少しある</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="fever" value="yes">
+            <span class="radio-btn">ある</span>
+          </label>
+        </div>
+        <div class="error-msg" id="feverError">選択してください。</div>
+      </div>
+
+      <div class="health-item">
+        <div class="health-question">体調はいつも通りですか。<span class="required">※必須</span></div>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="condition" value="good">
+            <span class="radio-btn">良い</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="condition" value="normal">
+            <span class="radio-btn">いつも通り</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="condition" value="not_great">
+            <span class="radio-btn">あまり良くない</span>
+          </label>
+        </div>
+        <div class="error-msg" id="conditionError">選択してください。</div>
+      </div>
+
+      <div class="health-item">
+        <div class="health-question">痛みや怪我のある部位はありますか。<span class="required">※必須</span></div>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="pain" value="none" onchange="togglePainArea(false)">
+            <span class="radio-btn">ない</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="pain" value="yes" onchange="togglePainArea(true)">
+            <span class="radio-btn">ある</span>
+          </label>
+        </div>
+        <div class="error-msg" id="painError">選択してください。</div>
+        <div class="pain-area" id="painArea">
+          <p class="pain-area-note">差し支えなければ、部位を教えてください。</p>
+          <input type="text" id="painDetail" placeholder="例：右肩、腰など">
+        </div>
+      </div>
+
+      <div class="health-item" style="margin-bottom:0;">
+        <div class="health-question">その他、気になることがあれば。</div>
+        <textarea id="healthNote" placeholder="体調に関して伝えておきたいことがあれば、どんな小さなことでも。"></textarea>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-label">03 · CONCERN · 気になるところ</div>
       <div class="step-title">今日特に気になるところを<br>教えてください。</div>
       <div class="field">
         <textarea id="concern" placeholder="身体の部位、感覚、気になっていることなど。"></textarea>
@@ -224,11 +400,28 @@ button#submitBtn:disabled {
     </div>
 
     <div class="step">
-      <div class="step-label">03 · MESSAGE · 伝えておきたいこと</div>
+      <div class="step-label">04 · MESSAGE · 伝えておきたいこと</div>
       <div class="step-title">今日伝えておきたいことが<br>あれば教えてください。</div>
       <div class="field">
         <textarea id="message" placeholder="どんな小さなことでも。"></textarea>
       </div>
+    </div>
+
+    <div class="step" style="border-bottom:none;">
+      <div class="step-label">05 · CONFIRM · 施術前の確認</div>
+      <div class="step-title">最後に確認をお願いします。</div>
+      <p class="confirm-text">
+        上記の体調チェックの内容を確認しました。<br>
+        本日の施術を受けることに同意します。
+      </p>
+      <div class="checkbox-row" onclick="toggleConfirm()">
+        <div class="checkbox-custom" id="confirmBox"></div>
+        <div class="checkbox-text">
+          確認しました。本日の施術を受けます。
+          <small>I confirm the above and consent to receive today's session.</small>
+        </div>
+      </div>
+      <div class="error-msg" id="confirmError">チェックをお願いします。</div>
     </div>
 
     <div class="submit-wrap">
@@ -244,6 +437,27 @@ button#submitBtn:disabled {
 
 <script>
 var submitted = false;
+var confirmChecked = false;
+
+function togglePainArea(show) {
+  var area = document.getElementById('painArea');
+  if (show) {
+    area.classList.add('visible');
+  } else {
+    area.classList.remove('visible');
+    document.getElementById('painDetail').value = '';
+  }
+}
+
+function toggleConfirm() {
+  confirmChecked = !confirmChecked;
+  var box = document.getElementById('confirmBox');
+  if (confirmChecked) {
+    box.classList.add('checked');
+  } else {
+    box.classList.remove('checked');
+  }
+}
 
 function submitForm() {
   if (submitted) return;
@@ -251,28 +465,26 @@ function submitForm() {
   var name = document.getElementById('name').value.trim();
   var customerNo = document.getElementById('customerNo').value.trim();
   var visitDate = document.getElementById('visitDate').value.trim();
+  var fever = document.querySelector('input[name="fever"]:checked');
+  var condition = document.querySelector('input[name="condition"]:checked');
+  var pain = document.querySelector('input[name="pain"]:checked');
   var valid = true;
 
-  document.getElementById('nameError').style.display = 'none';
-  document.getElementById('customerNoError').style.display = 'none';
-  document.getElementById('visitDateError').style.display = 'none';
-  document.getElementById('topError').style.display = 'none';
+  ['nameError','customerNoError','visitDateError','feverError','conditionError','painError','confirmError','topError'].forEach(function(id) {
+    document.getElementById(id).style.display = 'none';
+  });
 
-  if (!name) {
-    document.getElementById('nameError').style.display = 'block';
-    valid = false;
-  }
-  if (!customerNo) {
-    document.getElementById('customerNoError').style.display = 'block';
-    valid = false;
-  }
-  if (!visitDate) {
-    document.getElementById('visitDateError').style.display = 'block';
-    valid = false;
-  }
+  if (!name) { document.getElementById('nameError').style.display = 'block'; valid = false; }
+  if (!customerNo) { document.getElementById('customerNoError').style.display = 'block'; valid = false; }
+  if (!visitDate) { document.getElementById('visitDateError').style.display = 'block'; valid = false; }
+  if (!fever) { document.getElementById('feverError').style.display = 'block'; valid = false; }
+  if (!condition) { document.getElementById('conditionError').style.display = 'block'; valid = false; }
+  if (!pain) { document.getElementById('painError').style.display = 'block'; valid = false; }
+  if (!confirmChecked) { document.getElementById('confirmError').style.display = 'block'; valid = false; }
+
   if (!valid) {
     document.getElementById('topError').style.display = 'block';
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     return;
   }
 
@@ -281,6 +493,11 @@ function submitForm() {
   btn.disabled = true;
   btn.textContent = '送信中...';
 
+  var feverLabel = { none: 'なし', slight: '少しある', yes: 'あり' }[fever.value];
+  var conditionLabel = { good: '良い', normal: 'いつも通り', not_great: 'あまり良くない' }[condition.value];
+  var painLabel = pain.value === 'yes' ? 'あり' : 'なし';
+  var painDetail = document.getElementById('painDetail').value.trim();
+  var healthNote = document.getElementById('healthNote').value.trim();
   var concern = document.getElementById('concern').value.trim();
   var message = document.getElementById('message').value.trim();
 
@@ -289,15 +506,21 @@ function submitForm() {
     name: name,
     customerNo: 'A' + customerNo,
     visitDate: visitDate,
+    fever: feverLabel,
+    condition: conditionLabel,
+    pain: painLabel,
+    painDetail: painDetail,
+    healthNote: healthNote,
     concern: concern,
     message: message,
+    confirmed: 'true',
     callback: 'cb'
   });
 
   var script = document.createElement('script');
   script.src = 'https://script.google.com/macros/s/AKfycbxYwB1C7buF48ZUBAVCbeR0ohqgE_y3TvJKig-cw7xpzV-EAWoq4i8qssagoo0UVH1H/exec?' + params.toString();
   window.cb = function() {
-    document.querySelector('.form-wrap').innerHTML = '<div style="text-align:center;padding:80px 24px;"><div style="font-size:52px;font-style:italic;letter-spacing:8px;color:#2e2620;margin-bottom:24px;">Amrita</div><div style="width:1px;height:40px;background:linear-gradient(to bottom,#c8b89a,transparent);margin:0 auto 32px;"></div><p style="font-size:18px;letter-spacing:3px;color:#2e2620;margin-bottom:20px;">ありがとうございます。</p><p style="font-size:14px;color:#a08870;line-height:2.2;letter-spacing:1px;">今日もどうぞよろしくお願いします。</p></div>';
+    document.querySelector('.form-wrap').innerHTML = '<div style="text-align:center;padding:80px 24px;"><div style="font-size:52px;font-style:italic;letter-spacing:8px;color:#2e2620;margin-bottom:16px;">Amrita</div><div style="width:1px;height:40px;background:linear-gradient(to bottom,#c8b89a,transparent);margin:0 auto 32px;"></div><p style="font-size:18px;letter-spacing:3px;color:#2e2620;margin-bottom:20px;">ありがとうございます。</p><p style="font-size:14px;color:#a08870;line-height:2.2;letter-spacing:1px;">今日もどうぞよろしくお願いします。</p></div>';
   };
   document.body.appendChild(script);
 }
