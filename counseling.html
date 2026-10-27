@@ -107,9 +107,7 @@ footer{background:#1e1810;border-top:1px solid #3a2e20;padding:1.8rem;text-align
     </div>
     <div class="field-block">
       <span class="field-label">顧客番号</span>
-      <input type="text" class="input-field" id="customerNo" value="A" placeholder="A001" maxlength="10"
-        oninput="if(!this.value.startsWith('A')){this.value='A'+this.value.replace(/^A*/,'');}"
-        onkeydown="if((event.key==='Backspace'||event.key==='Delete')&&this.value==='A'){event.preventDefault();}">
+      <input type="text" class="input-field" id="customerNo" placeholder="001" maxlength="10">
     </div>
     <div class="field-block">
       <span class="field-label">メールアドレス<span class="req">※必須</span></span>
@@ -138,16 +136,16 @@ footer{background:#1e1810;border-top:1px solid #3a2e20;padding:1.8rem;text-align
 
   <div class="step" id="step1">
     <span class="step-label">02 · Body · 身体</span>
-    <div class="step-title">今、身体はどんな状態ですか？</div>
-    <div class="options" id="opts1">
-      <div class="option" onclick="selectOption(this,'opts1')"><span class="option-dot"></span><span class="option-text">重くて疲れている。動きたくない。</span></div>
-      <div class="option" onclick="selectOption(this,'opts1')"><span class="option-dot"></span><span class="option-text">力みや緊張が抜けない。肩や首が固い。</span></div>
-      <div class="option" onclick="selectOption(this,'opts1')"><span class="option-dot"></span><span class="option-text">呼吸が浅い。胸や腹が窮屈な感じ。</span></div>
-      <div class="option" onclick="selectOption(this,'opts1')"><span class="option-dot"></span><span class="option-text">痛みや不快感がある。気になる部分がある。</span></div>
-      <div class="option" onclick="selectOption(this,'opts1')"><span class="option-dot"></span><span class="option-text">比較的軽い。特に気になる感じはない。</span></div>
+    <div class="step-title">今、身体はどんな状態ですか？<span class="note-small">複数選択可</span></div>
+    <div class="cb-list" id="cb1">
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">重くて疲れている。動きたくない。</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">力みや緊張が抜けない。肩や首が固い。</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">呼吸が浅い。胸や腹が窮屈な感じ。</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">痛みや不快感がある。気になる部分がある。</span></div>
+      <div class="cb-item" data-ex="1" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">比較的軽い。特に気になる感じはない。</span></div>
     </div>
     <div id="err1" class="error-msg">選択してください。</div>
-    <button type="button" class="btn-next" onclick="validateRadio('opts1','err1',2)">次へ</button>
+    <button type="button" class="btn-next" onclick="validateChecked('cb1','err1',1)">次へ</button>
   </div>
 
   <div class="step" id="step2">
@@ -163,7 +161,7 @@ footer{background:#1e1810;border-top:1px solid #3a2e20;padding:1.8rem;text-align
       <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">足裏</span></div>
       <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">頭</span></div>
       <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">腕</span></div>
-      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">特になし</span></div>
+      <div class="cb-item" data-ex="1" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">特になし</span></div>
       <div class="cb-item" onclick="toggleCbOther(this,'other2')"><span class="cb-box"></span><span class="cb-text">その他</span></div>
     </div>
     <div class="other-wrap" id="other2">
@@ -202,21 +200,21 @@ footer{background:#1e1810;border-top:1px solid #3a2e20;padding:1.8rem;text-align
 
   <div class="step" id="step4">
     <span class="step-label">05 · Hope · 今日について</span>
-    <div class="step-title">今日、どんな時間になったら嬉しいですか？</div>
-    <div class="options" id="opts4">
-      <div class="option" onclick="selectOption(this,'opts4')"><span class="option-dot"></span><span class="option-text">深く休みたい</span></div>
-      <div class="option" onclick="selectOption(this,'opts4')"><span class="option-dot"></span><span class="option-text">身体をゆるめたい</span></div>
-      <div class="option" onclick="selectOption(this,'opts4')"><span class="option-dot"></span><span class="option-text">頭を静かにしたい</span></div>
-      <div class="option" onclick="selectOption(this,'opts4')"><span class="option-dot"></span><span class="option-text">感覚を取り戻したい</span></div>
-      <div class="option" onclick="selectOption(this,'opts4')"><span class="option-dot"></span><span class="option-text">今の自分を感じたい</span></div>
-      <div class="option" onclick="selectOption(this,'opts4')"><span class="option-dot"></span><span class="option-text">まだよくわからない</span></div>
-      <div class="option" onclick="selectOption(this,'opts4')"><span class="option-dot"></span><span class="option-text">その他</span></div>
+    <div class="step-title">今日、どんな時間になったら嬉しいですか？<span class="note-small">複数選択可</span></div>
+    <div class="cb-list" id="cb4">
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">深く休みたい</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">身体をゆるめたい</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">頭を静かにしたい</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">感覚を取り戻したい</span></div>
+      <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">今の自分を感じたい</span></div>
+      <div class="cb-item" data-ex="1" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">まだよくわからない</span></div>
+      <div class="cb-item" onclick="toggleCbOther(this,'other4')"><span class="cb-box"></span><span class="cb-text">その他</span></div>
     </div>
     <div class="other-wrap" id="other4" style="margin-top:0.5rem;">
       <textarea placeholder="どんな時間にしたいか教えてください。" id="otherText4" style="height:80px;"></textarea>
     </div>
     <div id="err4" class="error-msg">選択してください。</div>
-    <button type="button" class="btn-next" onclick="validateStep4()" style="margin-top:1.5rem;">次へ</button>
+    <button type="button" class="btn-next" onclick="validateChecked('cb4','err4',4)" style="margin-top:1.5rem;">次へ</button>
   </div>
 
   <div class="step" id="step5">
@@ -231,6 +229,7 @@ footer{background:#1e1810;border-top:1px solid #3a2e20;padding:1.8rem;text-align
         <div class="option" onclick="selectOption(this,'opts5pressure')"><span class="option-dot"></span><span class="option-text">深く届く圧が好き</span></div>
         <div class="option" onclick="selectOption(this,'opts5pressure')"><span class="option-dot"></span><span class="option-text">その都度確認してほしい</span></div>
       </div>
+      <textarea id="pressureNote" placeholder="場所や場面で違う場合は、ご自由にどうぞ。（例：肩は強め、お腹は弱め）" style="height:80px;margin-top:0.5rem;"></textarea>
     </div>
     <div class="field-block" style="margin-top:2rem;">
       <span class="field-label">触れてほしくない場所</span>
@@ -245,7 +244,7 @@ footer{background:#1e1810;border-top:1px solid #3a2e20;padding:1.8rem;text-align
         <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">首まわり</span></div>
         <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">香り</span></div>
         <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">会話が多いこと</span></div>
-        <div class="cb-item" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">特になし</span></div>
+        <div class="cb-item" data-ex="1" onclick="toggleCb(this)"><span class="cb-box"></span><span class="cb-text">特になし</span></div>
         <div class="cb-item" onclick="toggleCbOther(this,'other5')"><span class="cb-box"></span><span class="cb-text">その他</span></div>
       </div>
       <div class="other-wrap" id="other5">
@@ -333,12 +332,40 @@ function selectOption(el, groupId) {
   }
 }
 
+function clearExclusive(list, exceptEl) {
+  list.querySelectorAll('.cb-item.selected').forEach(function(it) {
+    if (it !== exceptEl) it.classList.remove('selected');
+  });
+}
+
+function afterToggle(el) {
+  const list = el.parentElement;
+  if (el.dataset.ex && el.classList.contains('selected')) {
+    // 「特になし」などを選んだら、他の選択を外す
+    clearExclusive(list, el);
+    list.parentElement.querySelectorAll('.other-wrap').forEach(function(w) {
+      if (w.previousElementSibling === list || list.nextElementSibling === w) {
+        w.classList.remove('show');
+        const ta = w.querySelector('textarea');
+        if (ta) ta.value = '';
+      }
+    });
+  } else if (!el.dataset.ex && el.classList.contains('selected')) {
+    // 他を選んだら、「特になし」などを外す
+    list.querySelectorAll('.cb-item[data-ex].selected').forEach(function(it) {
+      it.classList.remove('selected');
+    });
+  }
+}
+
 function toggleCb(el) {
   el.classList.toggle('selected');
+  afterToggle(el);
 }
 
 function toggleCbOther(el, wrapperId) {
   el.classList.toggle('selected');
+  afterToggle(el);
   const wrap = document.getElementById(wrapperId);
   if (el.classList.contains('selected')) {
     wrap.classList.add('show');
@@ -433,6 +460,15 @@ function validateStep0() {
   nextStep(0);
 }
 
+function validateChecked(listId, errId, stepIdx) {
+  if (!getChecked(listId)) {
+    document.getElementById(errId).classList.add('show');
+    return;
+  }
+  document.getElementById(errId).classList.remove('show');
+  nextStep(stepIdx);
+}
+
 function validateRadio(optsId, errId, nextStepNum) {
   if (!answers[optsId]) {
     document.getElementById(errId).classList.add('show');
@@ -459,10 +495,6 @@ function doSubmit() {
   btn.disabled = true;
   btn.textContent = '送信中...';
 
-  const hope4 = answers['opts4'] || '';
-  const other4 = document.getElementById('otherText4').value.trim();
-  const hopeVal = (hope4 === 'その他' && other4) ? 'その他：' + other4 : hope4;
-
   const params = new URLSearchParams({
     name: document.getElementById('userName').value.trim(),
     customerNo: document.getElementById('customerNo').value.trim(),
@@ -470,12 +502,12 @@ function doSubmit() {
     lineName: document.getElementById('lineName').value.trim(),
     reserveDate: document.getElementById('reserveDate').value,
     menu: answers['optsMenu'] || '',
-    body: answers['opts1'] || '',
+    body: getChecked('cb1'),
     concern: getCheckedWithOther('cb2', 'otherText2'),
     feeling: getCheckedWithOther('cb3', 'otherText3'),
     senseTime: answers['opts3sense'] || '',
-    hope: hopeVal,
-    pressure: answers['opts5pressure'] || '',
+    hope: getCheckedWithOther('cb4', 'otherText4'),
+    pressure: (answers['opts5pressure'] || '') + (document.getElementById('pressureNote').value.trim() ? ((answers['opts5pressure'] ? '／' : '') + document.getElementById('pressureNote').value.trim()) : ''),
     noTouch: document.getElementById('noTouch').value.trim(),
     noAction: getCheckedWithOther('cb5', 'otherText5'),
     health: document.getElementById('health').value.trim(),
