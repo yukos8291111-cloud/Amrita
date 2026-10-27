@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -249,10 +248,7 @@ button#submitBtn:disabled {
       </div>
       <div class="field">
         <label>顧客番号<span class="required">※必須</span></label>
-        <div style="display:flex;align-items:center;gap:4px;">
-          <span style="font-size:15px;color:#2e2620;">A</span>
-          <input type="text" id="customerNo" name="customerNo" placeholder="001" style="flex:1;" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
-        </div>
+        <input type="text" id="customerNo" name="customerNo" placeholder="001" maxlength="10">
         <div class="error-msg" id="customerNoError">顧客番号を入力してください。</div>
       </div>
       <div class="field">
@@ -287,14 +283,15 @@ button#submitBtn:disabled {
       <div class="step-label">03 · BREATH · 呼吸</div>
       <div class="step-title">呼吸の感じはどうですか？</div>
       <div class="field">
-        <div class="radio-group">
-          <label class="radio-item"><input type="radio" name="breath" value="深くなった"><span>深くなった</span></label>
-          <label class="radio-item"><input type="radio" name="breath" value="楽になった"><span>楽になった</span></label>
-          <label class="radio-item"><input type="radio" name="breath" value="ゆっくりになった"><span>ゆっくりになった</span></label>
-          <label class="radio-item"><input type="radio" name="breath" value="変化はよくわからない"><span>変化はよくわからない</span></label>
-          <label class="radio-item"><input type="radio" name="breath" value="浅さを感じる"><span>浅さを感じる</span></label>
-          <label class="radio-item"><input type="radio" name="breath" value="詰まりを感じる"><span>詰まりを感じる</span></label>
-          <label class="radio-item"><input type="radio" name="breath" value="その他" id="breathOtherRad"><span>その他</span></label>
+        <label style="font-size:13px;color:#a08870;">複数選択できます</label>
+        <div class="check-group">
+          <label class="check-item"><input type="checkbox" name="breath" value="深くなった"><span>深くなった</span></label>
+          <label class="check-item"><input type="checkbox" name="breath" value="楽になった"><span>楽になった</span></label>
+          <label class="check-item"><input type="checkbox" name="breath" value="ゆっくりになった"><span>ゆっくりになった</span></label>
+          <label class="check-item"><input type="checkbox" name="breath" value="変化はよくわからない"><span>変化はよくわからない</span></label>
+          <label class="check-item"><input type="checkbox" name="breath" value="浅さを感じる"><span>浅さを感じる</span></label>
+          <label class="check-item"><input type="checkbox" name="breath" value="詰まりを感じる"><span>詰まりを感じる</span></label>
+          <label class="check-item"><input type="checkbox" name="breath" value="その他" id="breathOtherRad"><span>その他</span></label>
           <input type="text" name="breathOther" id="breathOtherText" class="other-text" placeholder="自由にどうぞ">
         </div>
       </div>
@@ -343,15 +340,16 @@ button#submitBtn:disabled {
       <div class="step-label">08 · NEXT · 次回</div>
       <div class="step-title">次回受けるとしたら、<br>今の自分にはどんな時間が必要ですか？</div>
       <div class="field">
-        <div class="radio-group">
-          <label class="radio-item"><input type="radio" name="next" value="まずは疲れを取りたい"><span>まずは疲れを取りたい</span></label>
-          <label class="radio-item"><input type="radio" name="next" value="深くゆるみたい"><span>深くゆるみたい</span></label>
-          <label class="radio-item"><input type="radio" name="next" value="静かに休みたい"><span>静かに休みたい</span></label>
-          <label class="radio-item"><input type="radio" name="next" value="自分を整理したい"><span>自分を整理したい</span></label>
-          <label class="radio-item"><input type="radio" name="next" value="感覚を取り戻したい"><span>感覚を取り戻したい</span></label>
-          <label class="radio-item"><input type="radio" name="next" value="ただゆっくり過ごしたい"><span>ただゆっくり過ごしたい</span></label>
-          <label class="radio-item"><input type="radio" name="next" value="まだわからない"><span>まだわからない</span></label>
-          <label class="radio-item"><input type="radio" name="next" value="その他" id="nextOtherRad"><span>その他</span></label>
+        <label style="font-size:13px;color:#a08870;">複数選択できます</label>
+        <div class="check-group">
+          <label class="check-item"><input type="checkbox" name="next" value="まずは疲れを取りたい"><span>まずは疲れを取りたい</span></label>
+          <label class="check-item"><input type="checkbox" name="next" value="深くゆるみたい"><span>深くゆるみたい</span></label>
+          <label class="check-item"><input type="checkbox" name="next" value="静かに休みたい"><span>静かに休みたい</span></label>
+          <label class="check-item"><input type="checkbox" name="next" value="自分を整理したい"><span>自分を整理したい</span></label>
+          <label class="check-item"><input type="checkbox" name="next" value="感覚を取り戻したい"><span>感覚を取り戻したい</span></label>
+          <label class="check-item"><input type="checkbox" name="next" value="ただゆっくり過ごしたい"><span>ただゆっくり過ごしたい</span></label>
+          <label class="check-item"><input type="checkbox" name="next" value="まだわからない"><span>まだわからない</span></label>
+          <label class="check-item"><input type="checkbox" name="next" value="その他" id="nextOtherRad"><span>その他</span></label>
           <input type="text" name="nextOther" id="nextOtherText" class="other-text" placeholder="自由にどうぞ">
         </div>
       </div>
@@ -393,30 +391,43 @@ button#submitBtn:disabled {
 <script>
 var submitted = false;
 
-document.getElementById('bodyOtherChk').addEventListener('change', function() {
-  document.getElementById('bodyOtherText').style.display = this.checked ? 'block' : 'none';
-});
+// 「その他」の入力欄の表示切り替え
+function bindOther(chkId, textId) {
+  var chk = document.getElementById(chkId);
+  var txt = document.getElementById(textId);
+  chk.addEventListener('change', function() {
+    txt.style.display = this.checked ? 'block' : 'none';
+    if (!this.checked) txt.value = '';
+  });
+}
+bindOther('bodyOtherChk', 'bodyOtherText');
+bindOther('breathOtherRad', 'breathOtherText');
+bindOther('nextOtherRad', 'nextOtherText');
 
-document.getElementById('breathOtherRad').addEventListener('change', function() {
-  document.getElementById('breathOtherText').style.display = 'block';
-});
-document.querySelectorAll('input[name="breath"]').forEach(function(r) {
-  if (r.id !== 'breathOtherRad') {
-    r.addEventListener('change', function() {
-      document.getElementById('breathOtherText').style.display = 'none';
+// 「よくわからない」系は他の選択肢と同時に選べない
+var exclusiveValues = {
+  body: '感覚がよくわからない',
+  breath: '変化はよくわからない',
+  next: 'まだわからない'
+};
+Object.keys(exclusiveValues).forEach(function(name) {
+  var boxes = document.querySelectorAll('input[name="' + name + '"]');
+  boxes.forEach(function(box) {
+    box.addEventListener('change', function() {
+      if (!this.checked) return;
+      var isEx = this.value === exclusiveValues[name];
+      boxes.forEach(function(other) {
+        if (other === box) return;
+        var otherIsEx = other.value === exclusiveValues[name];
+        if (isEx || otherIsEx) {
+          if (other.checked) {
+            other.checked = false;
+            other.dispatchEvent(new Event('change'));
+          }
+        }
+      });
     });
-  }
-});
-
-document.getElementById('nextOtherRad').addEventListener('change', function() {
-  document.getElementById('nextOtherText').style.display = 'block';
-});
-document.querySelectorAll('input[name="next"]').forEach(function(r) {
-  if (r.id !== 'nextOtherRad') {
-    r.addEventListener('change', function() {
-      document.getElementById('nextOtherText').style.display = 'none';
-    });
-  }
+  });
 });
 
 function submitForm() {
@@ -461,18 +472,18 @@ function submitForm() {
   var params = new URLSearchParams({
     formType: 'after',
     name: name,
-    customerNo: 'A' + customerNo,
+    customerNo: customerNo,
     sessionDate: sessionDate,
     body: bodyVals,
     bodyOther: fd.get('bodyOther') || '',
-    breath: fd.get('breath') || '',
+    breath: fd.getAll('breath').join('、'),
     breathOther: fd.get('breathOther') || '',
     sensation: fd.get('sensation') || '',
     heart: fd.get('heart') || '',
     word: fd.get('word') || '',
     good: fd.get('good') || '',
     improve: fd.get('improve') || '',
-    next: fd.get('next') || '',
+    next: fd.getAll('next').join('、'),
     nextOther: fd.get('nextOther') || '',
     permission: fd.get('permission') || '',
     photo: fd.get('photo') || '',
