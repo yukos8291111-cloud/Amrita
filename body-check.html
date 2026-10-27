@@ -311,10 +311,7 @@ button#submitBtn:disabled {
       </div>
       <div class="field">
         <label>顧客番号<span class="required">※必須</span></label>
-        <div style="display:flex;align-items:center;gap:4px;">
-          <span style="font-size:15px;color:#2e2620;">A</span>
-          <input type="text" id="customerNo" placeholder="001" style="flex:1;" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
-        </div>
+        <input type="text" id="customerNo" placeholder="001" maxlength="10">
         <div class="error-msg" id="customerNoError">顧客番号を入力してください。</div>
       </div>
       <div class="field">
@@ -504,7 +501,7 @@ function submitForm() {
   var params = new URLSearchParams({
     formType: 'bodycheck',
     name: name,
-    customerNo: 'A' + customerNo,
+    customerNo: customerNo,
     visitDate: visitDate,
     fever: feverLabel,
     condition: conditionLabel,
